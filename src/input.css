@@ -156,20 +156,23 @@ button, input, textarea, select { font: inherit; }
 
   .icon-box {
     display: grid;
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 3rem;
+    height: 3rem;
     place-items: center;
     border-radius: var(--radius-sm);
-    border: 1px solid rgb(0 250 100 / .2);
-    background: var(--color-navy);
+    border: 1px solid rgb(0 250 100 / .34);
+    background:
+      linear-gradient(135deg, rgb(0 250 100 / .16), rgb(229 255 0 / .1)),
+      var(--color-white);
     color: var(--color-green);
-    box-shadow: 0 12px 30px rgb(0 20 60 / .16);
+    box-shadow: 0 12px 30px rgb(0 20 60 / .1);
   }
 
   .icon-box img {
     width: 1.5rem;
     height: 1.5rem;
     object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgb(0 20 60 / .08));
   }
 
   .field {
