@@ -160,8 +160,16 @@ button, input, textarea, select { font: inherit; }
     height: 2.75rem;
     place-items: center;
     border-radius: var(--radius-sm);
-    background: rgb(0 250 100 / .13);
+    border: 1px solid rgb(0 250 100 / .2);
+    background: var(--color-navy);
     color: var(--color-green);
+    box-shadow: 0 12px 30px rgb(0 20 60 / .16);
+  }
+
+  .icon-box img {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
   }
 
   .field {
