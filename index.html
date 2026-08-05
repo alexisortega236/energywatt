@@ -183,10 +183,10 @@
           <p class="eyebrow">Contacto</p>
           <h2 class="section-title">Envíanos tus requerimientos</h2>
           <div class="mt-8 grid gap-4">
-            <div class="card p-5"><strong class="text-ew-navy">Teléfono</strong><p data-config="phone">[TELÉFONO POR DEFINIR]</p></div>
-            <div class="card p-5"><strong class="text-ew-navy">Correo</strong><p data-config="email">[CORREO POR DEFINIR]</p></div>
-            <div class="card p-5"><strong class="text-ew-navy">Dirección</strong><p data-config="address">[DIRECCIÓN POR DEFINIR]</p></div>
-            <div class="card p-5"><strong class="text-ew-navy">Horario</strong><p data-config="hours">[HORARIO POR DEFINIR]</p></div>
+            <div class="card p-5"><strong class="text-ew-navy">Teléfono</strong><p data-config="phone">Ej. +52 000 000 0000</p></div>
+            <div class="card p-5"><strong class="text-ew-navy">Correo</strong><p data-config="email">Ej. ventas@energywatt.mx</p></div>
+            <div class="card p-5"><strong class="text-ew-navy">Dirección</strong><p data-config="address">Ej. Calle, numero, colonia, ciudad, estado</p></div>
+            <div class="card p-5"><strong class="text-ew-navy">Horario</strong><p data-config="hours">Ej. Lunes a viernes, 9:00 a.m. - 6:00 p.m.</p></div>
           </div>
         </div>
         <form data-contact-form class="reveal rounded-lg bg-ew-gray-light p-5 shadow-[var(--shadow-card)] md:p-8" novalidate>
@@ -216,7 +216,11 @@
     <div class="site-container mt-8 border-t border-white/10 pt-6 text-sm text-white/60">© <span data-year></span> ENERGY WATT México. Todos los derechos reservados.</div>
   </footer>
 
-  <a data-whatsapp class="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-ew-green text-2xl font-black text-ew-navy shadow-2xl focus:outline-4 focus:outline-ew-yellow" href="#" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp con número placeholder">W</a>
+  <a data-whatsapp class="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-ew-green text-ew-navy shadow-2xl transition hover:-translate-y-1 hover:bg-ew-yellow focus:outline-4 focus:outline-ew-yellow" href="#" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp con número placeholder">
+    <svg aria-hidden="true" class="h-7 w-7" viewBox="0 0 32 32" fill="currentColor">
+      <path d="M16.04 3.2A12.75 12.75 0 0 0 5.2 22.63L3.5 28.8l6.32-1.66A12.72 12.72 0 0 0 16.04 28.8h.01A12.8 12.8 0 0 0 16.04 3.2Zm7.52 18.08c-.31.88-1.82 1.67-2.55 1.78-.65.1-1.48.15-2.39-.15-.55-.18-1.26-.41-2.17-.8-3.82-1.65-6.31-5.5-6.5-5.76-.19-.25-1.55-2.06-1.55-3.93s.98-2.79 1.33-3.17c.35-.38.76-.48 1.01-.48h.73c.23.01.55-.08.86.66.31.75 1.08 2.64 1.17 2.83.1.19.16.41.03.66-.13.25-.19.41-.38.64-.19.22-.4.5-.57.67-.19.19-.39.4-.17.78.22.38.97 1.6 2.08 2.59 1.43 1.27 2.64 1.67 3.02 1.86.38.19.6.16.82-.1.22-.25.95-1.11 1.2-1.49.25-.38.51-.32.86-.19.35.13 2.24 1.05 2.62 1.24.38.19.63.29.73.45.1.16.1.92-.21 1.8Z"/>
+    </svg>
+  </a>
 
   <script src="./src/main.js" defer></script>
 </body>

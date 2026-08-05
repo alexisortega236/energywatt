@@ -1,8 +1,8 @@
 const siteConfig = {
-  phone: "[TELEFONO POR DEFINIR]",
-  email: "[CORREO POR DEFINIR]",
-  address: "[DIRECCION POR DEFINIR]",
-  hours: "[HORARIO POR DEFINIR]",
+  phone: "Ej. +52 000 000 0000",
+  email: "Ej. ventas@energywatt.mx",
+  address: "Ej. Calle, numero, colonia, ciudad, estado",
+  hours: "Ej. Lunes a viernes, 9:00 a.m. - 6:00 p.m.",
   whatsappNumber: "5210000000000",
   whatsappMessage: "Hola ENERGY WATT Mexico, quiero solicitar una cotizacion.",
   social: {
