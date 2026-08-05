@@ -1,0 +1,16 @@
+{
+  "name": "ENERGY WATT México",
+  "short_name": "ENERGY WATT",
+  "description": "Distribución de material eléctrico para proyectos en México.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#00143C",
+  "theme_color": "#00143C",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

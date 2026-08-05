@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="900" fill="#00143C"/>
+  <g opacity=".18" stroke="#FFFFFF" stroke-width="1">
+    <path d="M80 170h310v160H80zM140 210h190M140 250h140M140 290h220M700 110h360v210H700zM760 165h240M760 210h160M760 255h210"/>
+    <path d="M120 660h970M120 710h970M120 760h970"/>
+  </g>
+  <g fill="none" stroke="#00FA64" stroke-width="3" opacity=".75">
+    <path d="M120 610C270 460 385 520 520 360S780 170 1080 250"/>
+    <path d="M110 675C300 585 430 620 565 485s305-160 505-90"/>
+  </g>
+  <g fill="#00FA64">
+    <circle cx="180" cy="560" r="7"/><circle cx="335" cy="498" r="5"/><circle cx="520" cy="360" r="8"/><circle cx="715" cy="245" r="5"/><circle cx="930" cy="230" r="7"/>
+  </g>
+  <g transform="translate(500 240)">
+    <path fill="#00FA64" d="M75 0h125l-54 119h74L22 345l52-159H0z"/>
+    <path fill="#FFFFFF" opacity=".9" d="M146 119h103l-28 67H99z"/>
+    <path fill="#E5FF00" opacity=".8" d="M76 214h118l-35 74H51z"/>
+  </g>
+  <g opacity=".35" fill="none" stroke="#E5FF00">
+    <circle cx="606" cy="421" r="210"/><circle cx="606" cy="421" r="280"/>
+  </g>
+</svg>

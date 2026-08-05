@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 96" role="img" aria-labelledby="title desc">
+  <title id="title">ENERGY WATT MÉXICO</title>
+  <desc id="desc">Logotipo tipográfico inspirado en rayo eléctrico y formas diagonales.</desc>
+  <rect width="420" height="96" fill="none"/>
+  <g fill="#FFFFFF">
+    <path d="M70 20h44v14H87v11h23v13H87v12h29v14H70z"/>
+    <path d="M122 20h16l31 38V20h18v64h-16l-31-38v38h-18z"/>
+    <path d="M198 20h46v14h-29v11h25v13h-25v12h31v14h-48z"/>
+    <path d="M255 20h29c18 0 29 9 29 24 0 10-5 17-14 21l17 19h-21l-14-16h-8v16h-18zm28 34c8 0 12-3 12-9s-4-10-12-10h-10v19z"/>
+    <path d="M319 52c0-19 15-33 35-33 12 0 21 4 28 11l-11 12c-5-5-10-7-17-7-10 0-17 7-17 17 0 11 7 18 18 18 5 0 9-1 13-4v-8h-16V45h33v29c-7 7-18 11-31 11-20 0-35-14-35-33z"/>
+  </g>
+  <g>
+    <path fill="#00FA64" d="M23 12h32L43 39h18L14 90l11-36H7z"/>
+    <path fill="#FFFFFF" d="M43 39h23L60 54H36z"/>
+    <path fill="#FFFFFF" d="M26 63h28l-7 15H21z"/>
+  </g>
+  <g fill="#FFFFFF">
+    <path d="M305 9h17l16 47 16-47h18l-24 64h-18z" transform="translate(12 9)"/>
+    <path d="M364 20h18v49h31v15h-49z" transform="translate(12 9)"/>
+  </g>
+  <g fill="#00FA64" transform="translate(326 8)">
+    <path d="M19 20h13L18 66H5z"/>
+    <path d="M43 20h13L42 66H29z"/>
+  </g>
+  <text x="300" y="91" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="900" letter-spacing="1.5">MEXICO</text>
+</svg>
