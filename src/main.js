@@ -1,10 +1,12 @@
+document.documentElement.classList.add("js");
+
 const siteConfig = {
   phone: "Ej. +52 000 000 0000",
   email: "Ej. ventas@energywatt.mx",
   address: "Ej. Calle, numero, colonia, ciudad, estado",
   hours: "Ej. Lunes a viernes, 9:00 a.m. - 6:00 p.m.",
   whatsappNumber: "5210000000000",
-  whatsappMessage: "Hola ENERGY WATT Mexico, quiero solicitar una cotizacion.",
+  whatsappMessage: "Hola ENERGY WATT México, quiero solicitar una cotización.",
   social: {
     linkedin: "#",
     facebook: "#",
@@ -28,18 +30,20 @@ function setHeaderState() {
 function closeMobileMenu() {
   mobileMenu?.classList.add("hidden");
   mobileToggle?.setAttribute("aria-expanded", "false");
+  mobileToggle?.setAttribute("aria-label", "Abrir menú");
   document.body.classList.remove("overflow-hidden");
 }
 
 function openMobileMenu() {
   mobileMenu?.classList.remove("hidden");
   mobileToggle?.setAttribute("aria-expanded", "true");
+  mobileToggle?.setAttribute("aria-label", "Cerrar menú");
   document.body.classList.add("overflow-hidden");
 }
 
 function getFieldError(field) {
   if (field.validity.valueMissing) return "Completa este campo.";
-  if (field.validity.typeMismatch) return "Ingresa un formato valido.";
+  if (field.validity.typeMismatch) return "Ingresa un formato válido.";
   if (field.validity.patternMismatch) return "Revisa el formato solicitado.";
   if (field.validity.tooShort) return `Ingresa al menos ${field.minLength} caracteres.`;
   return "";
@@ -62,7 +66,7 @@ async function submitContactRequest(payload) {
   */
   return {
     demo: true,
-    message: "Modo demostracion: la solicitud fue validada, pero aun no se envio porque falta conectar un endpoint real."
+    message: "Modo demostración: no se envió la solicitud porque todavía no hay un canal conectado."
   };
 }
 
@@ -78,7 +82,10 @@ function initFormValidation() {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    formStatus.textContent = "";
+    if (formStatus) {
+      formStatus.textContent = "";
+      formStatus.removeAttribute("data-state");
+    }
 
     const fields = Array.from(form.querySelectorAll("input, textarea, select"));
     const honeypot = form.querySelector('input[name="website"]');
@@ -92,24 +99,44 @@ function initFormValidation() {
     });
 
     if (honeypot?.value) {
-      formStatus.textContent = "No fue posible procesar la solicitud.";
+      if (formStatus) {
+        formStatus.textContent = "No fue posible procesar la solicitud.";
+        formStatus.dataset.state = "error";
+      }
       return;
     }
 
     if (firstInvalid) {
       firstInvalid.focus();
-      formStatus.textContent = "Revisa los campos marcados antes de continuar.";
+      if (formStatus) {
+        formStatus.textContent = "Revisa los campos marcados antes de continuar.";
+        formStatus.dataset.state = "error";
+      }
       return;
     }
 
     const submitButton = form.querySelector('button[type="submit"]');
+    if (!submitButton) return;
     submitButton.disabled = true;
     submitButton.textContent = "Validando...";
+    form.setAttribute("aria-busy", "true");
 
-    const response = await submitContactRequest(new FormData(form));
-    formStatus.textContent = response.message;
-    submitButton.disabled = false;
-    submitButton.textContent = "Enviar solicitud";
+    try {
+      const response = await submitContactRequest(new FormData(form));
+      if (formStatus) {
+        formStatus.textContent = response.message;
+        formStatus.dataset.state = response.demo ? "demo" : "success";
+      }
+    } catch (error) {
+      if (formStatus) {
+        formStatus.textContent = "No fue posible procesar la solicitud. Intenta nuevamente.";
+        formStatus.dataset.state = "error";
+      }
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "Enviar solicitud";
+      form.removeAttribute("aria-busy");
+    }
   });
 }
 

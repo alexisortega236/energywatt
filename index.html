@@ -37,7 +37,7 @@
       <a href="#inicio" aria-label="Ir al inicio" class="flex items-center">
         <img src="./public/assets/logos/energy-watt-logo-white.png" alt="ENERGY WATT México" class="h-12 w-44 object-contain md:h-14 md:w-60">
       </a>
-      <nav class="hidden items-center gap-6 text-sm font-bold text-white/82 lg:flex" aria-label="Navegación principal">
+      <nav class="hidden items-center gap-4 text-sm font-bold text-white/82 lg:flex xl:gap-6" aria-label="Navegación principal">
         <a class="nav-link hover:text-ew-green" href="#inicio">Inicio</a>
         <a class="nav-link hover:text-ew-green" href="#nosotros">Nosotros</a>
         <a class="nav-link hover:text-ew-green" href="#soluciones">Soluciones</a>
@@ -45,7 +45,7 @@
         <a class="nav-link hover:text-ew-green" href="#ventajas">Ventajas</a>
         <a class="nav-link hover:text-ew-green" href="#contacto">Contacto</a>
       </nav>
-      <a class="btn btn-primary hidden lg:inline-flex" href="#contacto">Solicitar cotización</a>
+      <a class="btn btn-primary hidden whitespace-nowrap lg:inline-flex" href="#contacto">Solicitar cotización</a>
       <button data-mobile-toggle class="mobile-toggle grid h-11 w-11 place-items-center rounded-md border border-white/20 text-white lg:hidden" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil">
         <span class="h-0.5 w-6 bg-current shadow-[0_7px_0_current,0_-7px_0_current]"></span>
       </button>
@@ -64,19 +64,19 @@
   </header>
 
   <main id="contenido">
-    <section id="inicio" class="tech-bg relative min-h-screen bg-ew-navy pt-32 text-white">
-      <div class="site-container grid min-h-[calc(100vh-8rem)] items-center gap-12 pb-14 lg:grid-cols-[1.02fr_.98fr]">
-        <div class="reveal max-w-3xl">
+    <section id="inicio" class="hero-section tech-bg relative bg-ew-navy pt-28 text-white md:pt-32">
+      <div class="hero-content site-container grid items-center gap-10 pb-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-14">
+        <div class="reveal max-w-3xl lg:pr-4">
           <p class="eyebrow">Distribución de material eléctrico</p>
-          <h1 class="mt-5 font-[var(--font-display)] text-[clamp(3rem,8vw,6.8rem)] font-black leading-[.9] tracking-normal">Energía y respaldo para cada proyecto</h1>
-          <p class="mt-7 max-w-2xl text-lg leading-8 text-white/78 md:text-xl">Soluciones confiables en material eléctrico para ingenieros, constructores, instaladores y empresas que necesitan continuidad, seguridad y eficiencia.</p>
-          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+          <h1 class="mt-4 max-w-[13ch] font-[var(--font-display)] text-[clamp(2.85rem,7vw,6.2rem)] font-black leading-[.94] tracking-normal">Energía y respaldo para cada proyecto</h1>
+          <p class="mt-6 max-w-xl text-lg leading-8 text-white/78 md:text-xl">Soluciones confiables en material eléctrico para ingenieros, constructores, instaladores y empresas que necesitan continuidad, seguridad y eficiencia.</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
             <a class="btn btn-primary" href="#contacto">Solicitar cotización</a>
             <a class="btn btn-secondary" href="#soluciones">Conocer soluciones</a>
           </div>
         </div>
         <div class="reveal relative">
-          <div class="absolute -inset-6 bg-ew-green/10 blur-3xl"></div>
+          <div class="absolute -inset-6 bg-ew-green/5 blur-3xl"></div>
           <img src="./public/assets/images/hero-energy-watt.svg" alt="Red técnica de energía con rayo eléctrico" class="relative aspect-[4/3] w-full rounded-lg border border-white/10 object-cover shadow-[var(--shadow-dark)]">
         </div>
       </div>
@@ -91,7 +91,7 @@
       </div>
     </section>
 
-    <section id="nosotros" class="section-pad bg-white">
+    <section id="nosotros" class="section-primary bg-white">
       <div class="site-container grid items-center gap-12 lg:grid-cols-2">
         <div class="reveal">
           <p class="eyebrow">Nosotros</p>
@@ -109,75 +109,79 @@
       </div>
     </section>
 
-    <section id="soluciones" class="section-pad bg-ew-gray-light">
+    <section id="soluciones" class="section-standard bg-ew-gray-light">
       <div class="site-container">
         <div class="reveal max-w-3xl">
           <p class="eyebrow">Soluciones</p>
           <h2 class="section-title">Atención para proyectos eléctricos profesionales</h2>
         </div>
-        <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          <article class="card reveal p-6"><div class="icon-box"><img src="./public/assets/icons/suministro-para-proyectos.png" alt="" width="24" height="24" loading="lazy"></div><h3 class="mt-5 text-xl font-black text-ew-navy">Suministro para proyectos</h3><p class="mt-3 leading-7">Apoyo en requerimientos de obra, mantenimiento o expansión.</p></article>
-          <article class="card reveal p-6"><div class="icon-box"><img src="./public/assets/icons/material-para-instalaciones.png" alt="" width="24" height="24" loading="lazy"></div><h3 class="mt-5 text-xl font-black text-ew-navy">Material para instalaciones eléctricas</h3><p class="mt-3 leading-7">Categorías generales listas para ajustarse al catálogo real.</p></article>
-          <article class="card reveal p-6"><div class="icon-box"><img src="./public/assets/icons/constructoras-e-instaladores.png" alt="" width="24" height="24" loading="lazy"></div><h3 class="mt-5 text-xl font-black text-ew-navy">Constructoras e instaladores</h3><p class="mt-3 leading-7">Atención cercana para equipos que dependen de tiempos claros.</p></article>
-          <article class="card reveal p-6"><div class="icon-box"><img src="./public/assets/icons/abastecimiento-para-empresas.png" alt="" width="24" height="24" loading="lazy"></div><h3 class="mt-5 text-xl font-black text-ew-navy">Abastecimiento para empresas</h3><p class="mt-3 leading-7">Respaldo en compras recurrentes y necesidades operativas.</p></article>
-          <article class="card reveal p-6"><div class="icon-box"><img src="./public/assets/icons/seleccion-de-productos.png" alt="" width="24" height="24" loading="lazy"></div><h3 class="mt-5 text-xl font-black text-ew-navy">Selección de productos</h3><p class="mt-3 leading-7">Orientación para identificar alternativas adecuadas.</p></article>
-          <article class="card reveal p-6"><div class="icon-box"><img src="./public/assets/icons/cotizacion-personalizada.png" alt="" width="24" height="24" loading="lazy"></div><h3 class="mt-5 text-xl font-black text-ew-navy">Cotización personalizada</h3><p class="mt-3 leading-7">Recepción de listas de materiales y seguimiento puntual.</p></article>
+        <div class="mt-10 grid items-stretch gap-5 md:grid-cols-2 lg:mt-12 lg:grid-cols-3">
+          <article class="card reveal flex h-full flex-col p-6"><div class="icon-box"><img src="./public/assets/icons/suministro-para-proyectos.png" alt="" width="24" height="24" loading="lazy"></div><h3 class="mt-4 text-xl font-black text-ew-navy">Suministro para proyectos</h3><p class="mt-3 leading-7">Apoyo en requerimientos de obra, mantenimiento o expansión.</p></article>
+          <article class="card reveal flex h-full flex-col p-6"><div class="icon-box"><img src="./public/assets/icons/material-para-instalaciones.png" alt="" width="24" height="24" loading="lazy"></div><h3 class="mt-4 text-xl font-black text-ew-navy">Material para instalaciones eléctricas</h3><p class="mt-3 leading-7">Categorías generales listas para ajustarse al catálogo real.</p></article>
+          <article class="card reveal flex h-full flex-col p-6"><div class="icon-box"><img src="./public/assets/icons/constructoras-e-instaladores.png" alt="" width="24" height="24" loading="lazy"></div><h3 class="mt-4 text-xl font-black text-ew-navy">Constructoras e instaladores</h3><p class="mt-3 leading-7">Atención cercana para equipos que dependen de tiempos claros.</p></article>
+          <article class="card reveal flex h-full flex-col p-6"><div class="icon-box"><img src="./public/assets/icons/abastecimiento-para-empresas.png" alt="" width="24" height="24" loading="lazy"></div><h3 class="mt-4 text-xl font-black text-ew-navy">Abastecimiento para empresas</h3><p class="mt-3 leading-7">Respaldo en compras recurrentes y necesidades operativas.</p></article>
+          <article class="card reveal flex h-full flex-col p-6"><div class="icon-box"><img src="./public/assets/icons/seleccion-de-productos.png" alt="" width="24" height="24" loading="lazy"></div><h3 class="mt-4 text-xl font-black text-ew-navy">Selección de productos</h3><p class="mt-3 leading-7">Orientación para identificar alternativas adecuadas.</p></article>
+          <article class="card reveal flex h-full flex-col p-6"><div class="icon-box"><img src="./public/assets/icons/cotizacion-personalizada.png" alt="" width="24" height="24" loading="lazy"></div><h3 class="mt-4 text-xl font-black text-ew-navy">Cotización personalizada</h3><p class="mt-3 leading-7">Recepción de listas de materiales y seguimiento puntual.</p></article>
         </div>
       </div>
     </section>
 
-    <section id="productos" class="section-pad bg-white">
+    <section id="productos" class="section-standard bg-white">
       <div class="site-container">
         <div class="reveal flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div><p class="eyebrow">Productos</p><h2 class="section-title">Material eléctrico para cada etapa de tu proyecto</h2></div>
           <a class="btn btn-primary" href="#contacto">Consultar catálogo</a>
         </div>
         <!-- TODO: Confirmar o reemplazar estas categorias con el catalogo real de ENERGY WATT. -->
-        <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          <article class="card reveal overflow-hidden"><img src="./public/assets/images/category-protection.svg" loading="lazy" alt="Protección eléctrica" class="h-48 w-full object-cover"><div class="p-5"><h3 class="font-black text-ew-navy">Protección eléctrica</h3></div></article>
-          <article class="card reveal overflow-hidden"><img src="./public/assets/images/category-cabling.svg" loading="lazy" alt="Conductores y cableado" class="h-48 w-full object-cover"><div class="p-5"><h3 class="font-black text-ew-navy">Conductores y cableado</h3></div></article>
-          <article class="card reveal overflow-hidden"><img src="./public/assets/images/category-control.svg" loading="lazy" alt="Control y distribución" class="h-48 w-full object-cover"><div class="p-5"><h3 class="font-black text-ew-navy">Control y distribución</h3></div></article>
-          <article class="card reveal p-6"><h3 class="font-black text-ew-navy">Canalización</h3><p class="mt-3 leading-7">Material para ordenar y proteger instalaciones.</p></article>
-          <article class="card reveal p-6"><h3 class="font-black text-ew-navy">Conexión e instalación</h3><p class="mt-3 leading-7">Componentes de apoyo para montaje y conexión.</p></article>
-          <article class="card reveal p-6"><h3 class="font-black text-ew-navy">Equipamiento para proyectos</h3><p class="mt-3 leading-7">Categoría editable para necesidades especiales.</p></article>
+        <div class="mt-10 grid items-start gap-5 md:grid-cols-2 lg:mt-12 lg:grid-cols-3">
+          <div class="product-group grid gap-5 md:col-span-2 md:grid-cols-2 lg:contents">
+            <article class="card card-featured reveal overflow-hidden"><img src="./public/assets/images/category-protection.svg" loading="lazy" alt="Protección eléctrica" class="h-48 w-full object-cover"><div class="p-5"><h3 class="font-black text-ew-navy">Protección eléctrica</h3></div></article>
+            <article class="card card-featured reveal overflow-hidden"><img src="./public/assets/images/category-cabling.svg" loading="lazy" alt="Conductores y cableado" class="h-48 w-full object-cover"><div class="p-5"><h3 class="font-black text-ew-navy">Conductores y cableado</h3></div></article>
+            <article class="card card-featured reveal overflow-hidden"><img src="./public/assets/images/category-control.svg" loading="lazy" alt="Control y distribución" class="h-48 w-full object-cover"><div class="p-5"><h3 class="font-black text-ew-navy">Control y distribución</h3></div></article>
+          </div>
+          <div class="product-group grid gap-5 md:col-span-2 md:grid-cols-2 lg:contents">
+            <article class="card card-complementary reveal flex h-full flex-col p-6"><h3 class="font-black text-ew-navy">Canalización</h3><p class="mt-3 leading-7">Material para ordenar y proteger instalaciones.</p></article>
+            <article class="card card-complementary reveal flex h-full flex-col p-6"><h3 class="font-black text-ew-navy">Conexión e instalación</h3><p class="mt-3 leading-7">Componentes de apoyo para montaje y conexión.</p></article>
+            <article class="card card-complementary reveal flex h-full flex-col p-6"><h3 class="font-black text-ew-navy">Equipamiento para proyectos</h3><p class="mt-3 leading-7">Categoría editable para necesidades especiales.</p></article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section-pad bg-ew-gray-light">
+    <section class="section-compact bg-ew-gray-light">
       <div class="site-container">
         <div class="reveal max-w-3xl"><p class="eyebrow">Proceso</p><h2 class="section-title">Cotización clara, suministro coordinado</h2></div>
-        <div class="mt-12 grid gap-5 lg:grid-cols-4">
-          <div class="reveal border-t-4 border-ew-green bg-white p-6"><span class="font-black text-ew-green">01</span><h3 class="mt-4 font-black text-ew-navy">Cuéntanos sobre tu proyecto</h3></div>
-          <div class="reveal border-t-4 border-ew-green bg-white p-6"><span class="font-black text-ew-green">02</span><h3 class="mt-4 font-black text-ew-navy">Revisamos tus necesidades</h3></div>
-          <div class="reveal border-t-4 border-ew-green bg-white p-6"><span class="font-black text-ew-green">03</span><h3 class="mt-4 font-black text-ew-navy">Preparamos tu cotización</h3></div>
-          <div class="reveal border-t-4 border-ew-green bg-white p-6"><span class="font-black text-ew-green">04</span><h3 class="mt-4 font-black text-ew-navy">Coordinamos el suministro</h3></div>
+        <div class="process-grid mt-10 grid gap-5 lg:mt-12 lg:grid-cols-4">
+          <div class="process-step reveal border-t-2 border-ew-green bg-white p-6"><span class="process-number font-black text-ew-green">01</span><h3 class="mt-4 font-black text-ew-navy">Cuéntanos sobre tu proyecto</h3></div>
+          <div class="process-step reveal border-t-2 border-ew-green bg-white p-6"><span class="process-number font-black text-ew-green">02</span><h3 class="mt-4 font-black text-ew-navy">Revisamos tus necesidades</h3></div>
+          <div class="process-step reveal border-t-2 border-ew-green bg-white p-6"><span class="process-number font-black text-ew-green">03</span><h3 class="mt-4 font-black text-ew-navy">Preparamos tu cotización</h3></div>
+          <div class="process-step reveal border-t-2 border-ew-green bg-white p-6"><span class="process-number font-black text-ew-green">04</span><h3 class="mt-4 font-black text-ew-navy">Coordinamos el suministro</h3></div>
         </div>
       </div>
     </section>
 
-    <section id="ventajas" class="section-pad tech-bg bg-ew-navy text-white">
+    <section id="ventajas" class="section-standard tech-bg bg-ew-navy text-white">
       <div class="site-container">
         <div class="reveal max-w-4xl"><p class="eyebrow">Ventajas</p><h2 class="mt-4 font-[var(--font-display)] text-[clamp(2.3rem,6vw,5rem)] font-black leading-none">Más que un proveedor, respaldo para tu operación</h2></div>
-        <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <div class="reveal border border-white/12 bg-white/5 p-5">Atención cercana</div>
-          <div class="reveal border border-white/12 bg-white/5 p-5">Soluciones confiables</div>
-          <div class="reveal border border-white/12 bg-white/5 p-5">Respuesta eficiente</div>
-          <div class="reveal border border-white/12 bg-white/5 p-5">Productos de calidad</div>
-          <div class="reveal border border-white/12 bg-white/5 p-5">Enfoque técnico</div>
-          <div class="reveal border border-white/12 bg-white/5 p-5">Continuidad para tus proyectos</div>
+        <div class="mt-10 grid gap-3 md:grid-cols-2 lg:mt-12 lg:grid-cols-3">
+          <div class="benefit-item reveal">Atención cercana</div>
+          <div class="benefit-item reveal">Soluciones confiables</div>
+          <div class="benefit-item reveal">Respuesta eficiente</div>
+          <div class="benefit-item reveal">Productos de calidad</div>
+          <div class="benefit-item reveal">Enfoque técnico</div>
+          <div class="benefit-item reveal">Continuidad para tus proyectos</div>
         </div>
       </div>
     </section>
 
-    <section class="bg-ew-green py-14 text-ew-navy">
+    <section class="section-compact bg-ew-green text-ew-navy">
       <div class="site-container flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div class="reveal"><h2 class="font-[var(--font-display)] text-3xl font-black md:text-5xl">¿Necesitas material eléctrico para tu próximo proyecto?</h2><p class="mt-3 max-w-3xl font-semibold">Compártenos tus requerimientos y recibe atención para preparar una solución adecuada a tu proyecto.</p></div>
         <a class="btn bg-ew-navy text-white hover:bg-black" href="#contacto">Solicitar una cotización</a>
       </div>
     </section>
 
-    <section id="contacto" class="section-pad bg-white">
+    <section id="contacto" class="section-primary bg-white">
       <div class="site-container grid gap-10 lg:grid-cols-[.85fr_1.15fr]">
         <div class="reveal">
           <p class="eyebrow">Contacto</p>
@@ -194,12 +198,12 @@
           <div class="grid gap-5 md:grid-cols-2">
             <div><label class="font-bold text-ew-navy" for="nombre">Nombre</label><input class="field mt-2" id="nombre" name="nombre" autocomplete="name" required minlength="2" aria-describedby="nombre-error"><p class="field-error" id="nombre-error"></p></div>
             <div><label class="font-bold text-ew-navy" for="empresa">Empresa</label><input class="field mt-2" id="empresa" name="empresa" autocomplete="organization" required aria-describedby="empresa-error"><p class="field-error" id="empresa-error"></p></div>
-            <div><label class="font-bold text-ew-navy" for="telefono">Teléfono</label><input class="field mt-2" id="telefono" name="telefono" autocomplete="tel" required pattern="[0-9+() .-]{8,}" aria-describedby="telefono-error"><p class="field-error" id="telefono-error"></p></div>
+            <div><label class="font-bold text-ew-navy" for="telefono">Teléfono</label><input class="field mt-2" id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" required pattern="[0-9+() .-]{8,}" aria-describedby="telefono-error"><p class="field-error" id="telefono-error"></p></div>
             <div><label class="font-bold text-ew-navy" for="email">Correo electrónico</label><input class="field mt-2" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error"><p class="field-error" id="email-error"></p></div>
             <div class="md:col-span-2"><label class="font-bold text-ew-navy" for="proyecto">Tipo de proyecto</label><select class="field mt-2" id="proyecto" name="proyecto" required aria-describedby="proyecto-error"><option value="">Selecciona una opción</option><option>Instalación eléctrica</option><option>Construcción</option><option>Mantenimiento</option><option>Abastecimiento empresarial</option><option>Otro</option></select><p class="field-error" id="proyecto-error"></p></div>
             <div class="md:col-span-2"><label class="font-bold text-ew-navy" for="mensaje">Mensaje</label><textarea class="field mt-2 min-h-36" id="mensaje" name="mensaje" required minlength="12" aria-describedby="mensaje-error"></textarea><p class="field-error" id="mensaje-error"></p></div>
           </div>
-          <div class="mt-5"><label class="flex gap-3 text-sm leading-6"><input id="privacidad" class="mt-1 h-5 w-5 accent-ew-green" type="checkbox" required aria-describedby="privacidad-error"><span>Acepto el aviso de privacidad pendiente de confirmar.</span></label><p class="field-error" id="privacidad-error"></p></div>
+          <div class="mt-5"><label class="flex gap-3 text-sm leading-6"><input id="privacidad" name="privacidad" value="aceptado" class="mt-1 h-5 w-5 accent-ew-green" type="checkbox" required aria-describedby="privacidad-error"><span>Acepto el aviso de privacidad pendiente de confirmar.</span></label><p class="field-error" id="privacidad-error"></p></div>
           <button class="btn btn-primary mt-6 w-full md:w-auto" type="submit">Enviar solicitud</button>
           <p data-form-status class="mt-4 min-h-6 font-bold text-ew-navy" role="status" aria-live="polite"></p>
         </form>
@@ -216,7 +220,7 @@
     <div class="site-container mt-8 border-t border-white/10 pt-6 text-sm text-white/60">© <span data-year></span> ENERGY WATT México. Todos los derechos reservados.</div>
   </footer>
 
-  <a data-whatsapp class="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-ew-green text-ew-navy shadow-2xl transition hover:-translate-y-1 hover:bg-ew-yellow focus:outline-4 focus:outline-ew-yellow" href="#" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp con número placeholder">
+  <a data-whatsapp class="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-ew-green text-ew-navy shadow-2xl transition hover:-translate-y-1 hover:bg-ew-yellow focus:outline-4 focus:outline-ew-yellow" href="#" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
     <svg aria-hidden="true" class="h-7 w-7" viewBox="0 0 32 32" fill="currentColor">
       <path d="M16.04 3.2A12.75 12.75 0 0 0 5.2 22.63L3.5 28.8l6.32-1.66A12.72 12.72 0 0 0 16.04 28.8h.01A12.8 12.8 0 0 0 16.04 3.2Zm7.52 18.08c-.31.88-1.82 1.67-2.55 1.78-.65.1-1.48.15-2.39-.15-.55-.18-1.26-.41-2.17-.8-3.82-1.65-6.31-5.5-6.5-5.76-.19-.25-1.55-2.06-1.55-3.93s.98-2.79 1.33-3.17c.35-.38.76-.48 1.01-.48h.73c.23.01.55-.08.86.66.31.75 1.08 2.64 1.17 2.83.1.19.16.41.03.66-.13.25-.19.41-.38.64-.19.22-.4.5-.57.67-.19.19-.39.4-.17.78.22.38.97 1.6 2.08 2.59 1.43 1.27 2.64 1.67 3.02 1.86.38.19.6.16.82-.1.22-.25.95-1.11 1.2-1.49.25-.38.51-.32.86-.19.35.13 2.24 1.05 2.62 1.24.38.19.63.29.73.45.1.16.1.92-.21 1.8Z"/>
     </svg>
