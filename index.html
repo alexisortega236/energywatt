@@ -142,7 +142,7 @@
           <div class="product-group grid gap-5 md:col-span-2 md:grid-cols-2 lg:contents">
             <article class="card card-complementary reveal flex h-full flex-col p-6"><h3 class="font-black text-ew-navy">Canalización</h3><p class="mt-3 leading-7">Material para ordenar y proteger instalaciones.</p></article>
             <article class="card card-complementary reveal flex h-full flex-col p-6"><h3 class="font-black text-ew-navy">Conexión e instalación</h3><p class="mt-3 leading-7">Componentes de apoyo para montaje y conexión.</p></article>
-            <article class="card card-complementary reveal flex h-full flex-col p-6"><h3 class="font-black text-ew-navy">Equipamiento para proyectos</h3><p class="mt-3 leading-7">Categoría editable para necesidades especiales.</p></article>
+            <article class="card card-complementary reveal flex h-full flex-col p-6"><h3 class="font-black text-ew-navy">Equipamiento para proyectos</h3><p class="mt-3 leading-7">Suministro complementario para proyectos eléctricos.</p></article>
           </div>
         </div>
       </div>
@@ -181,30 +181,51 @@
       </div>
     </section>
 
-    <section id="contacto" class="section-primary bg-white">
+    <section id="contacto" class="section-primary contact-section">
       <div class="site-container grid gap-10 lg:grid-cols-[.85fr_1.15fr]">
-        <div class="reveal">
+        <div class="reveal contact-intro">
           <p class="eyebrow">Contacto</p>
-          <h2 class="section-title">Envíanos tus requerimientos</h2>
-          <div class="mt-8 grid gap-4">
-            <div class="card p-5"><strong class="text-ew-navy">Teléfono</strong><p data-config="phone">Ej. +52 000 000 0000</p></div>
-            <div class="card p-5"><strong class="text-ew-navy">Correo</strong><p data-config="email">Ej. ventas@energywatt.mx</p></div>
-            <div class="card p-5"><strong class="text-ew-navy">Dirección</strong><p data-config="address">Ej. Calle, numero, colonia, ciudad, estado</p></div>
-            <div class="card p-5"><strong class="text-ew-navy">Horario</strong><p data-config="hours">Ej. Lunes a viernes, 9:00 a.m. - 6:00 p.m.</p></div>
+          <h2 class="section-title">Hablemos de tu proyecto</h2>
+          <p class="mt-5 max-w-xl text-lg leading-8">Ya sea que necesites material para un proyecto particular o una solución para tu empresa, cuéntanos qué necesitas.</p>
+          <div class="contact-benefits mt-8">
+            <div class="contact-benefit"><span class="contact-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg></span><p><strong>Atención personalizada</strong><span>Te escuchamos para entender qué necesitas.</span></p></div>
+            <div class="contact-benefit"><span class="contact-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4z"/><path d="m4 7 8 6 8-6M8 5v-1h8v1"/></svg></span><p><strong>Soluciones para tu proyecto</strong><span>Te ayudamos a identificar la opción adecuada.</span></p></div>
+            <div class="contact-benefit"><span class="contact-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12a8 8 0 0 1 14.9-4M20 12a8 8 0 0 1-14.9 4"/><path d="M19 4v4h-4M5 20v-4h4"/></svg></span><p><strong>Seguimiento directo</strong><span>Mantén comunicación con nuestro equipo.</span></p></div>
           </div>
         </div>
-        <form data-contact-form class="reveal rounded-lg bg-ew-gray-light p-5 shadow-[var(--shadow-card)] md:p-8" novalidate>
+        <form data-contact-form class="reveal contact-form-card" novalidate>
           <input class="hidden" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <div class="grid gap-5 md:grid-cols-2">
-            <div><label class="font-bold text-ew-navy" for="nombre">Nombre</label><input class="field mt-2" id="nombre" name="nombre" autocomplete="name" required minlength="2" aria-describedby="nombre-error"><p class="field-error" id="nombre-error"></p></div>
-            <div><label class="font-bold text-ew-navy" for="empresa">Empresa</label><input class="field mt-2" id="empresa" name="empresa" autocomplete="organization" required aria-describedby="empresa-error"><p class="field-error" id="empresa-error"></p></div>
-            <div><label class="font-bold text-ew-navy" for="telefono">Teléfono</label><input class="field mt-2" id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" required pattern="[0-9+() .-]{8,}" aria-describedby="telefono-error"><p class="field-error" id="telefono-error"></p></div>
-            <div><label class="font-bold text-ew-navy" for="email">Correo electrónico</label><input class="field mt-2" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error"><p class="field-error" id="email-error"></p></div>
-            <div class="md:col-span-2"><label class="font-bold text-ew-navy" for="proyecto">Tipo de proyecto</label><select class="field mt-2" id="proyecto" name="proyecto" required aria-describedby="proyecto-error"><option value="">Selecciona una opción</option><option>Instalación eléctrica</option><option>Construcción</option><option>Mantenimiento</option><option>Abastecimiento empresarial</option><option>Otro</option></select><p class="field-error" id="proyecto-error"></p></div>
-            <div class="md:col-span-2"><label class="font-bold text-ew-navy" for="mensaje">Mensaje</label><textarea class="field mt-2 min-h-36" id="mensaje" name="mensaje" required minlength="12" aria-describedby="mensaje-error"></textarea><p class="field-error" id="mensaje-error"></p></div>
+          <div class="contact-form-header">
+            <fieldset>
+              <legend class="contact-form-title">¿Quién solicita la información?</legend>
+              <p class="contact-form-description">Selecciona la opción que mejor te describa.</p>
+            </fieldset>
           </div>
-          <div class="mt-5"><label class="flex gap-3 text-sm leading-6"><input id="privacidad" name="privacidad" value="aceptado" class="mt-1 h-5 w-5 accent-ew-green" type="checkbox" required aria-describedby="privacidad-error"><span>Acepto el aviso de privacidad pendiente de confirmar.</span></label><p class="field-error" id="privacidad-error"></p></div>
-          <button class="btn btn-primary mt-6 w-full md:w-auto" type="submit">Enviar solicitud</button>
+          <fieldset class="contact-type-fieldset">
+            <legend class="sr-only">Tipo de cliente</legend>
+            <div class="contact-type-grid">
+              <label data-client-option class="contact-type-option is-selected">
+                <input class="contact-type-radio" type="radio" name="tipo_cliente" value="persona" checked required aria-describedby="tipo-cliente-error">
+                <span class="contact-option-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span>
+                <span class="contact-option-copy"><span class="contact-option-title">Soy una persona</span><span class="contact-option-subtitle">Proyecto personal</span></span>
+              </label>
+              <label data-client-option class="contact-type-option">
+                <input class="contact-type-radio" type="radio" name="tipo_cliente" value="empresa" required aria-describedby="tipo-cliente-error">
+                <span class="contact-option-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V5h10v16M14 9h6v12M8 9h2M8 13h2M8 17h2M17 13h1M17 17h1"/></svg></span>
+                <span class="contact-option-copy"><span class="contact-option-title">Represento una empresa</span><span class="contact-option-subtitle">Proyecto empresarial</span></span>
+              </label>
+            </div>
+            <p class="field-error" id="tipo-cliente-error"></p>
+          </fieldset>
+          <div class="contact-fields-grid">
+            <div><label class="contact-label" for="nombre">Nombre <span class="contact-required" aria-hidden="true">*</span></label><input class="field contact-field mt-2" id="nombre" name="nombre" autocomplete="name" required minlength="2" aria-describedby="nombre-error"><p class="field-error" id="nombre-error"></p></div>
+            <div><label class="contact-label" for="telefono">Teléfono / WhatsApp <span class="contact-required" aria-hidden="true">*</span></label><input class="field contact-field mt-2" id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" required pattern="[0-9+() .-]{8,}" aria-describedby="telefono-error"><p class="field-error" id="telefono-error"></p></div>
+            <div data-company-only class="hidden"><label class="contact-label" for="empresa">Empresa <span class="contact-required" aria-hidden="true">*</span></label><input class="field contact-field mt-2" id="empresa" name="empresa" autocomplete="organization" data-company-field data-required-company="true" aria-describedby="empresa-error"><p class="field-error" id="empresa-error"></p></div>
+            <div data-company-only class="hidden"><label class="contact-label" for="email">Correo corporativo <span class="contact-optional">(opcional)</span></label><input class="field contact-field mt-2" id="email" name="email" type="email" autocomplete="email" data-company-field aria-describedby="email-error"><p class="field-error" id="email-error"></p></div>
+            <div data-company-only class="hidden contact-field-wide"><label class="contact-label" for="tipo-proyecto">Tipo de proyecto <span class="contact-optional">(opcional)</span></label><select class="field contact-field mt-2" id="tipo-proyecto" name="tipo_proyecto" data-company-field aria-describedby="tipo-proyecto-error"><option value="">Selecciona una opción</option><option>Industrial</option><option>Comercial</option><option>Construcción</option><option>Mantenimiento</option><option>Otro</option></select><p class="field-error" id="tipo-proyecto-error"></p></div>
+            <div class="contact-field-wide"><label class="contact-label" for="mensaje">Cuéntanos un poco más <span class="contact-optional">(opcional)</span></label><textarea class="field contact-field contact-message mt-2" id="mensaje" name="mensaje" aria-describedby="mensaje-error" placeholder="Ej. Busco material eléctrico para una instalación…"></textarea><p class="field-error" id="mensaje-error"></p></div>
+          </div>
+          <button class="btn btn-primary contact-submit" type="submit">Quiero recibir asesoría <span aria-hidden="true">→</span></button>
           <p data-form-status class="mt-4 min-h-6 font-bold text-ew-navy" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -215,16 +236,10 @@
     <div class="site-container grid gap-8 md:grid-cols-[1.2fr_.8fr_.8fr]">
       <div><img src="./public/assets/logos/energy-watt-logo-white.png" alt="ENERGY WATT México" class="h-14 w-60 object-contain"><p class="mt-4 max-w-sm text-white/70">ENERGY WATT MÉXICO — Soluciones para proyectos eléctricos.</p></div>
       <nav class="grid gap-2 text-white/75" aria-label="Enlaces de pie"><a href="#nosotros">Nosotros</a><a href="#soluciones">Soluciones</a><a href="#productos">Productos</a><a href="#contacto">Contacto</a></nav>
-      <div class="text-white/75"><p>[TELÉFONO POR DEFINIR]</p><p>[CORREO POR DEFINIR]</p><p class="mt-4"><a href="#">Aviso de privacidad</a> · <a href="#">Términos y condiciones</a></p><p class="mt-4"><a href="#">LinkedIn</a> · <a href="#">Facebook</a> · <a href="#">Instagram</a></p></div>
+      <div class="text-white/75"><p class="font-bold text-white">Contacto</p><p class="mt-2 max-w-xs">Para solicitar información, utiliza el formulario de contacto.</p><a class="mt-4 inline-flex font-bold text-ew-green" href="#contacto">Ir al formulario de contacto</a></div>
     </div>
     <div class="site-container mt-8 border-t border-white/10 pt-6 text-sm text-white/60">© <span data-year></span> ENERGY WATT México. Todos los derechos reservados.</div>
   </footer>
-
-  <a data-whatsapp class="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-ew-green text-ew-navy shadow-2xl transition hover:-translate-y-1 hover:bg-ew-yellow focus:outline-4 focus:outline-ew-yellow" href="#" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
-    <svg aria-hidden="true" class="h-7 w-7" viewBox="0 0 32 32" fill="currentColor">
-      <path d="M16.04 3.2A12.75 12.75 0 0 0 5.2 22.63L3.5 28.8l6.32-1.66A12.72 12.72 0 0 0 16.04 28.8h.01A12.8 12.8 0 0 0 16.04 3.2Zm7.52 18.08c-.31.88-1.82 1.67-2.55 1.78-.65.1-1.48.15-2.39-.15-.55-.18-1.26-.41-2.17-.8-3.82-1.65-6.31-5.5-6.5-5.76-.19-.25-1.55-2.06-1.55-3.93s.98-2.79 1.33-3.17c.35-.38.76-.48 1.01-.48h.73c.23.01.55-.08.86.66.31.75 1.08 2.64 1.17 2.83.1.19.16.41.03.66-.13.25-.19.41-.38.64-.19.22-.4.5-.57.67-.19.19-.39.4-.17.78.22.38.97 1.6 2.08 2.59 1.43 1.27 2.64 1.67 3.02 1.86.38.19.6.16.82-.1.22-.25.95-1.11 1.2-1.49.25-.38.51-.32.86-.19.35.13 2.24 1.05 2.62 1.24.38.19.63.29.73.45.1.16.1.92-.21 1.8Z"/>
-    </svg>
-  </a>
 
   <script src="./src/main.js" defer></script>
 </body>

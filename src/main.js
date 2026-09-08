@@ -1,19 +1,5 @@
 document.documentElement.classList.add("js");
 
-const siteConfig = {
-  phone: "Ej. +52 000 000 0000",
-  email: "Ej. ventas@energywatt.mx",
-  address: "Ej. Calle, numero, colonia, ciudad, estado",
-  hours: "Ej. Lunes a viernes, 9:00 a.m. - 6:00 p.m.",
-  whatsappNumber: "5210000000000",
-  whatsappMessage: "Hola ENERGY WATT México, quiero solicitar una cotización.",
-  social: {
-    linkedin: "#",
-    facebook: "#",
-    instagram: "#"
-  }
-};
-
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const header = document.querySelector("[data-header]");
 const mobileToggle = document.querySelector("[data-mobile-toggle]");
@@ -21,7 +7,6 @@ const mobileMenu = document.querySelector("[data-mobile-menu]");
 const yearNode = document.querySelector("[data-year]");
 const form = document.querySelector("[data-contact-form]");
 const formStatus = document.querySelector("[data-form-status]");
-const whatsappLink = document.querySelector("[data-whatsapp]");
 
 function setHeaderState() {
   header?.classList.toggle("is-scrolled", window.scrollY > 24);
@@ -56,6 +41,29 @@ function setFieldError(field, message) {
   field.setAttribute("aria-invalid", message ? "true" : "false");
 }
 
+function updateClientFields(type) {
+  const isCompany = type === "empresa";
+
+  document.querySelectorAll("[data-client-option]").forEach((option) => {
+    const input = option.querySelector('input[name="tipo_cliente"]');
+    const isSelected = input?.checked;
+    option.classList.toggle("is-selected", isSelected);
+    option.classList.toggle("border-ew-green", isSelected);
+    option.classList.toggle("bg-ew-green/5", isSelected);
+  });
+
+  document.querySelectorAll("[data-company-only]").forEach((container) => {
+    container.classList.toggle("hidden", !isCompany);
+    container.setAttribute("aria-hidden", String(!isCompany));
+  });
+
+  document.querySelectorAll("[data-company-field]").forEach((field) => {
+    field.disabled = !isCompany;
+    field.required = isCompany && field.dataset.requiredCompany === "true";
+    if (!isCompany) setFieldError(field, "");
+  });
+}
+
 async function submitContactRequest(payload) {
   /*
     Conecta aqui un proveedor real:
@@ -66,8 +74,20 @@ async function submitContactRequest(payload) {
   */
   return {
     demo: true,
-    message: "Modo demostración: no se envió la solicitud porque todavía no hay un canal conectado."
+    message: "Por el momento este formulario no está disponible. Intenta nuevamente más tarde."
   };
+}
+
+function initClientTypeSelector() {
+  const clientTypeInputs = document.querySelectorAll('input[name="tipo_cliente"]');
+  if (!clientTypeInputs.length) return;
+
+  clientTypeInputs.forEach((input) => {
+    input.addEventListener("change", () => updateClientFields(input.value));
+  });
+
+  const selectedType = document.querySelector('input[name="tipo_cliente"]:checked')?.value || "persona";
+  updateClientFields(selectedType);
 }
 
 function initFormValidation() {
@@ -118,7 +138,7 @@ function initFormValidation() {
     const submitButton = form.querySelector('button[type="submit"]');
     if (!submitButton) return;
     submitButton.disabled = true;
-    submitButton.textContent = "Validando...";
+    submitButton.textContent = "Preparando...";
     form.setAttribute("aria-busy", "true");
 
     try {
@@ -134,7 +154,7 @@ function initFormValidation() {
       }
     } finally {
       submitButton.disabled = false;
-      submitButton.textContent = "Enviar solicitud";
+      submitButton.textContent = "Quiero recibir asesoría";
       form.removeAttribute("aria-busy");
     }
   });
@@ -176,14 +196,6 @@ document.addEventListener("keydown", (event) => {
 
 if (yearNode) yearNode.textContent = new Date().getFullYear();
 
-if (whatsappLink) {
-  whatsappLink.href = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`;
-}
-
-document.querySelectorAll("[data-config]").forEach((node) => {
-  const key = node.getAttribute("data-config");
-  if (key && siteConfig[key]) node.textContent = siteConfig[key];
-});
-
+initClientTypeSelector();
 initFormValidation();
 initRevealAnimations();
