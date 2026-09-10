@@ -1,5 +1,6 @@
 document.documentElement.classList.add("js");
 
+const whatsappNumber = "2227539744";
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const header = document.querySelector("[data-header]");
 const mobileToggle = document.querySelector("[data-mobile-toggle]");
@@ -41,6 +42,40 @@ function setFieldError(field, message) {
   field.setAttribute("aria-invalid", message ? "true" : "false");
 }
 
+function buildWhatsAppUrl(message) {
+  const normalizedNumber = whatsappNumber.replace(/\D/g, "");
+  if (!normalizedNumber) return "";
+  return `https://wa.me/${normalizedNumber}?text=${encodeURIComponent(message)}`;
+}
+
+function openWhatsAppConversation(message) {
+  const url = buildWhatsAppUrl(message);
+  if (!url) return false;
+  return Boolean(window.open(url, "_blank", "noopener,noreferrer"));
+}
+
+function buildWhatsAppMessage(formData) {
+  const type = formData.get("tipo_cliente");
+  const name = String(formData.get("nombre") || "").trim();
+  const phone = String(formData.get("telefono") || "").trim();
+  const message = String(formData.get("mensaje") || "").trim();
+  const lines = ["Hola, me gustaría recibir información de Energy Watt.", "", `Nombre: ${name}`];
+
+  if (type === "empresa") {
+    const company = String(formData.get("empresa") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const projectType = String(formData.get("tipo_proyecto") || "").trim();
+    lines.push(`Empresa: ${company}`, `Teléfono: ${phone}`);
+    if (email) lines.push(`Correo: ${email}`);
+    if (projectType) lines.push(`Tipo de proyecto: ${projectType}`);
+  } else {
+    lines.push(`Teléfono: ${phone}`);
+  }
+
+  if (message) lines.push("", "Necesito:", message);
+  return lines.join("\n");
+}
+
 function updateClientFields(type) {
   const isCompany = type === "empresa";
 
@@ -65,17 +100,44 @@ function updateClientFields(type) {
 }
 
 async function submitContactRequest(payload) {
-  /*
-    Conecta aqui un proveedor real:
-    - Formspree: fetch("https://formspree.io/f/ID", { method: "POST", body: payload })
-    - Web3Forms: agrega access_key y envia a https://api.web3forms.com/submit
-    - EmailJS: llama su SDK desde este punto si el cliente lo autoriza
-    - Endpoint propio: fetch("/api/contacto", { method: "POST", body: payload })
-  */
+  const opened = openWhatsAppConversation(buildWhatsAppMessage(payload));
   return {
-    demo: true,
-    message: "Por el momento este formulario no está disponible. Intenta nuevamente más tarde."
+    opened,
+    message: opened ? "Se abrió WhatsApp para continuar la conversación." : "No fue posible abrir WhatsApp. Intenta nuevamente más tarde."
   };
+}
+
+function initWhatsAppActions() {
+  const hasWhatsApp = Boolean(whatsappNumber.replace(/\D/g, ""));
+  const actions = document.querySelectorAll("[data-whatsapp-action]");
+
+  actions.forEach((action) => {
+    if (action.hasAttribute("data-whatsapp-floating")) action.classList.toggle("hidden", !hasWhatsApp);
+    if (action instanceof HTMLButtonElement) {
+      action.disabled = !hasWhatsApp;
+      action.setAttribute("aria-disabled", String(!hasWhatsApp));
+    }
+
+    if (!hasWhatsApp || action.hasAttribute("data-whatsapp-floating") && action.matches("button[type=submit]")) return;
+    action.addEventListener("click", () => {
+      const message = action.dataset.whatsappContext === "products"
+        ? "Hola, quiero información para cotizar productos de Energy Watt."
+        : "Hola, me gustaría hablar con un asesor de Energy Watt.";
+      openWhatsAppConversation(message);
+    });
+  });
+
+  const floatingAction = document.querySelector("[data-whatsapp-floating]");
+  const avoidTargets = document.querySelectorAll("#contacto, footer");
+  if (!hasWhatsApp || !floatingAction || !avoidTargets.length || !("IntersectionObserver" in window)) return;
+
+  const visibility = new Map();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => visibility.set(entry.target, entry.isIntersecting));
+    floatingAction.classList.toggle("hidden", [...visibility.values()].some(Boolean));
+  }, { threshold: 0.08 });
+
+  avoidTargets.forEach((target) => observer.observe(target));
 }
 
 function initClientTypeSelector() {
@@ -145,7 +207,7 @@ function initFormValidation() {
       const response = await submitContactRequest(new FormData(form));
       if (formStatus) {
         formStatus.textContent = response.message;
-        formStatus.dataset.state = response.demo ? "demo" : "success";
+        formStatus.dataset.state = response.opened ? "success" : "error";
       }
     } catch (error) {
       if (formStatus) {
@@ -196,6 +258,7 @@ document.addEventListener("keydown", (event) => {
 
 if (yearNode) yearNode.textContent = new Date().getFullYear();
 
+initWhatsAppActions();
 initClientTypeSelector();
 initFormValidation();
 initRevealAnimations();

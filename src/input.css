@@ -420,8 +420,88 @@ button, input, textarea, select { font: inherit; }
   #contacto .contact-submit.btn-primary:hover { transform: translateY(-1px); box-shadow: none; }
   .contact-submit span { font-size: 1.15rem; line-height: 1; }
 
+  .whatsapp-icon {
+    width: 1.15rem;
+    height: 1.15rem;
+    flex-shrink: 0;
+  }
+
+  .whatsapp-header-action,
+  .hero-whatsapp-action,
+  .products-whatsapp-action {
+    gap: .55rem;
+  }
+
+  .whatsapp-header-action.btn-primary,
+  .hero-whatsapp-action.btn-primary,
+  .products-whatsapp-action.btn-primary {
+    box-shadow: 0 8px 20px rgb(0 250 100 / .12);
+  }
+
+  .whatsapp-header-action.btn-primary:hover,
+  .hero-whatsapp-action.btn-primary:hover,
+  .products-whatsapp-action.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgb(0 250 100 / .16);
+  }
+
+  .mobile-menu-contact {
+    margin-top: .75rem;
+    padding-top: .75rem;
+    border-top: 1px solid rgb(255 255 255 / .12);
+  }
+
+  .whatsapp-menu-action { width: 100%; }
+
+  .whatsapp-float-action {
+    position: fixed;
+    right: 1.25rem;
+    bottom: max(1.25rem, env(safe-area-inset-bottom));
+    z-index: 40;
+    display: inline-flex;
+    width: 3.25rem;
+    height: 3.25rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(0 20 60 / .12);
+    border-radius: 999px;
+    background: var(--color-green);
+    color: var(--color-navy);
+    box-shadow: 0 8px 22px rgb(0 20 60 / .16);
+    transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .whatsapp-float-action.hidden { display: none; }
+
+  .whatsapp-float-action:hover {
+    transform: translateY(-1px);
+    background: var(--color-yellow);
+    box-shadow: 0 10px 24px rgb(0 20 60 / .18);
+  }
+
+  .whatsapp-float-action:focus-visible {
+    outline: 3px solid var(--color-yellow);
+    outline-offset: 3px;
+  }
+
+  .whatsapp-float-label { display: none; }
+
   @media (min-width: 23rem) {
     .contact-type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 63.99rem) {
+    .whatsapp-float-action {
+      right: 1rem;
+      bottom: max(1rem, env(safe-area-inset-bottom));
+      width: auto;
+      max-width: calc(100% - 2rem);
+      min-height: 3rem;
+      height: auto;
+      padding: .75rem 1rem;
+    }
+
+    .whatsapp-float-label { display: inline; font-size: .88rem; font-weight: 800; }
   }
 
   @media (min-width: 64rem) {
