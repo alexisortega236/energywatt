@@ -10,6 +10,13 @@ const yearNode = document.querySelector("[data-year]");
 const form = document.querySelector("[data-contact-form]");
 const formStatus = document.querySelector("[data-form-status]");
 
+function trackEvent(name, parameters = {}) {
+  window.dataLayer?.push({ event: name, ...parameters });
+  document.dispatchEvent(new CustomEvent("energywatt:analytics", {
+    detail: { name, parameters }
+  }));
+}
+
 function setHeaderState() {
   header?.classList.toggle("is-scrolled", window.scrollY > 24);
 }
@@ -112,6 +119,9 @@ function initWhatsAppActions() {
 
     if (!hasWhatsApp || action.hasAttribute("data-whatsapp-floating") && action.matches("button[type=submit]")) return;
     action.addEventListener("click", () => {
+      trackEvent("whatsapp_click", {
+        context: action.dataset.whatsappCategory || action.dataset.whatsappContext || "direct"
+      });
       const message = action.dataset.whatsappCategory
         ? `Hola, quiero cotizar la categoría ${action.dataset.whatsappCategory} de Energy Watt.`
         : action.dataset.whatsappContext === "products"
@@ -155,12 +165,17 @@ function initFormValidation() {
   form.addEventListener("input", (event) => {
     const field = event.target;
     if (!(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement || field instanceof HTMLSelectElement)) return;
+    if (!form.dataset.started) {
+      form.dataset.started = "true";
+      trackEvent("follow_up_form_start");
+    }
     if (!field.willValidate) return;
     setFieldError(field, field.validity.valid ? "" : getFieldError(field));
   });
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    trackEvent("follow_up_form_submit_attempt");
     if (formStatus) {
       formStatus.textContent = "";
       formStatus.removeAttribute("data-state");
@@ -208,6 +223,7 @@ function initFormValidation() {
         formStatus.textContent = response.message;
         formStatus.dataset.state = response.sent ? "success" : "error";
       }
+      trackEvent(response.sent ? "follow_up_request_sent" : "follow_up_request_unconfigured");
     } catch (error) {
       if (formStatus) {
         formStatus.textContent = "No fue posible procesar la solicitud. Intenta nuevamente.";
