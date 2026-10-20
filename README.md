@@ -84,21 +84,21 @@ Usar WebP o AVIF optimizados, sin marcas de agua.
 
 ## Datos de Contacto
 
-El número de WhatsApp utilizado por las acciones de contacto está en `src/main.js`, dentro de `whatsappNumber`. Debe confirmarse en formato internacional antes de publicar.
+El número de WhatsApp utilizado por las acciones de contacto está en `src/main.js`, dentro de `whatsappNumber`, en formato internacional.
 
 ## WhatsApp
 
 En `src/main.js`, cambia:
 
 ```js
-const whatsappNumber = "5210000000000";
+const whatsappNumber = "5215544835265";
 ```
 
 por el número real en formato internacional, sin espacios ni signos.
 
 ## Formulario
 
-El formulario valida en frontend y abre WhatsApp con los datos capturados para solicitar seguimiento. Si se requiere guardar prospectos o enviar correos, hay que conectar `submitContactRequest()` en `src/main.js` a un servicio o endpoint propio.
+El formulario valida en frontend y está separado de WhatsApp. Para recibir solicitudes de seguimiento hay que configurar `followUpEndpoint` en `src/main.js` con un servicio o endpoint propio.
 
 ## Redes Sociales
 

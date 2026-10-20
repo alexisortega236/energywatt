@@ -1,6 +1,7 @@
 document.documentElement.classList.add("js");
 
-const whatsappNumber = "2227539744";
+const whatsappNumber = "5215544835265";
+const followUpEndpoint = "";
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const header = document.querySelector("[data-header]");
 const mobileToggle = document.querySelector("[data-mobile-toggle]");
@@ -54,28 +55,6 @@ function openWhatsAppConversation(message) {
   return Boolean(window.open(url, "_blank", "noopener,noreferrer"));
 }
 
-function buildWhatsAppMessage(formData) {
-  const type = formData.get("tipo_cliente");
-  const name = String(formData.get("nombre") || "").trim();
-  const phone = String(formData.get("telefono") || "").trim();
-  const message = String(formData.get("mensaje") || "").trim();
-  const lines = ["Hola, me gustaría recibir información de Energy Watt.", "", `Nombre: ${name}`];
-
-  if (type === "empresa") {
-    const company = String(formData.get("empresa") || "").trim();
-    const email = String(formData.get("email") || "").trim();
-    const projectType = String(formData.get("tipo_proyecto") || "").trim();
-    lines.push(`Empresa: ${company}`, `Teléfono: ${phone}`);
-    if (email) lines.push(`Correo: ${email}`);
-    if (projectType) lines.push(`Tipo de proyecto: ${projectType}`);
-  } else {
-    lines.push(`Teléfono: ${phone}`);
-  }
-
-  if (message) lines.push("", "Necesito:", message);
-  return lines.join("\n");
-}
-
 function updateClientFields(type) {
   const isCompany = type === "empresa";
 
@@ -100,10 +79,23 @@ function updateClientFields(type) {
 }
 
 async function submitContactRequest(payload) {
-  const opened = openWhatsAppConversation(buildWhatsAppMessage(payload));
+  if (!followUpEndpoint) {
+    return {
+      sent: false,
+      message: "El formulario está listo, pero todavía falta configurar el canal que recibirá las solicitudes de seguimiento."
+    };
+  }
+
+  const response = await fetch(followUpEndpoint, {
+    method: "POST",
+    headers: { "Accept": "application/json" },
+    body: payload
+  });
+
+  if (!response.ok) throw new Error("No fue posible enviar la solicitud.");
   return {
-    opened,
-    message: opened ? "Se abrió WhatsApp para continuar la conversación." : "No fue posible abrir WhatsApp. Intenta nuevamente más tarde."
+    sent: true,
+    message: "Recibimos tu solicitud. El equipo se pondrá en contacto contigo."
   };
 }
 
@@ -157,7 +149,8 @@ function initClientTypeSelector() {
 function initFormValidation() {
   if (!form) return;
   const initialSubmitLabel = form.querySelector('button[type="submit"] span');
-  if (initialSubmitLabel) initialSubmitLabel.textContent = "Solicitar seguimiento";
+  if (initialSubmitLabel) initialSubmitLabel.textContent = "Enviar solicitud de seguimiento";
+  form.querySelector('button[type="submit"] svg')?.remove();
 
   form.addEventListener("input", (event) => {
     const field = event.target;
@@ -204,7 +197,7 @@ function initFormValidation() {
     const submitButton = form.querySelector('button[type="submit"]');
     if (!submitButton) return;
     const submitLabel = submitButton.querySelector("span");
-    if (submitLabel) submitLabel.textContent = "Solicitar seguimiento";
+    if (submitLabel) submitLabel.textContent = "Enviar solicitud de seguimiento";
     submitButton.disabled = true;
     if (submitLabel) submitLabel.textContent = "Preparando...";
     form.setAttribute("aria-busy", "true");
@@ -213,7 +206,7 @@ function initFormValidation() {
       const response = await submitContactRequest(new FormData(form));
       if (formStatus) {
         formStatus.textContent = response.message;
-        formStatus.dataset.state = response.opened ? "success" : "error";
+        formStatus.dataset.state = response.sent ? "success" : "error";
       }
     } catch (error) {
       if (formStatus) {
@@ -222,7 +215,7 @@ function initFormValidation() {
       }
     } finally {
       submitButton.disabled = false;
-      if (submitLabel) submitLabel.textContent = "Solicitar seguimiento";
+      if (submitLabel) submitLabel.textContent = "Enviar solicitud de seguimiento";
       form.removeAttribute("aria-busy");
     }
   });
