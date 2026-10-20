@@ -79,6 +79,22 @@ button, input, textarea, select { font: inherit; }
   .hero-section { min-height: 38rem; }
   .hero-content { min-height: 0; }
 
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #inicio { order: 1; }
+  main > section:nth-child(2) { order: 2; }
+  #productos { order: 3; }
+  #soluciones { order: 4; }
+  #nosotros { order: 5; }
+  #proceso { order: 6; }
+  main > section:nth-child(7) { order: 6; }
+  #ventajas { order: 7; }
+  main > section:nth-child(9) { order: 8; }
+  #contacto { order: 9; }
+
   .eyebrow {
     display: inline-flex;
     align-items: center;
@@ -169,6 +185,29 @@ button, input, textarea, select { font: inherit; }
   .card-complementary {
     border-top: 2px solid rgb(0 250 100 / .55);
     box-shadow: none;
+  }
+
+  .product-card {
+    min-height: 100%;
+  }
+
+  .faq-item {
+    border: 1px solid rgb(0 20 60 / .1);
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+    color: var(--color-navy);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    padding: 1rem 1.1rem;
+    font-weight: 800;
+  }
+
+  .faq-item p {
+    padding: 0 1.1rem 1rem;
+    color: var(--color-gray-dark);
+    line-height: 1.7;
   }
 
   .process-grid {
@@ -314,6 +353,34 @@ button, input, textarea, select { font: inherit; }
   .contact-benefit p { display: grid; gap: .2rem; line-height: 1.5; }
   .contact-benefit strong { color: var(--color-navy); font-weight: 650; }
 
+  .location-card {
+    display: flex;
+    align-items: flex-start;
+    gap: .85rem;
+    max-width: 30rem;
+    padding: 1rem;
+    border: 1px solid rgb(0 20 60 / .1);
+    border-radius: var(--radius-md);
+    background: rgb(255 255 255 / .68);
+  }
+
+  .location-card-icon {
+    display: grid;
+    flex: 0 0 2.25rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    place-items: center;
+    border-radius: 999px;
+    background: var(--color-navy);
+    color: var(--color-green);
+  }
+
+  .location-card-icon svg { width: 1.2rem; height: 1.2rem; }
+  .location-card div { display: grid; gap: .2rem; }
+  .location-card strong { color: var(--color-navy); }
+  .location-card span, .location-card small { line-height: 1.5; }
+  .location-card small { color: var(--color-gray-dark); font-size: .78rem; }
+
   .contact-form-card {
     align-self: center;
     padding: 1rem;
@@ -416,6 +483,7 @@ button, input, textarea, select { font: inherit; }
 
   .contact-field { min-height: 3rem; box-shadow: none; }
   .contact-message { min-height: 6.5rem; resize: vertical; }
+  .contact-privacy-note { margin-top: 1rem; color: var(--color-gray-dark); font-size: .82rem; line-height: 1.6; }
   #contacto .contact-submit.btn-primary { width: 100%; min-height: 3.2rem; margin-top: 1.25rem; justify-content: space-between; padding-inline: 1.1rem; font-size: .95rem; box-shadow: none; }
   #contacto .contact-submit.btn-primary:hover { transform: translateY(-1px); box-shadow: none; }
   .contact-submit span { font-size: 1.15rem; line-height: 1; }
@@ -486,6 +554,34 @@ button, input, textarea, select { font: inherit; }
 
   .whatsapp-float-label { display: none; }
 
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+  }
+
+  .social-links a {
+    display: grid;
+    width: 2.35rem;
+    height: 2.35rem;
+    place-items: center;
+    border: 1px solid rgb(255 255 255 / .18);
+    border-radius: 999px;
+    color: var(--color-white);
+    transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .social-links a:hover {
+    border-color: var(--color-green);
+    background: var(--color-green);
+    color: var(--color-navy);
+    transform: translateY(-1px);
+  }
+
+  .social-links svg { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 1.8; }
+  .social-links svg path { fill: currentColor; stroke: none; }
+  .social-links svg .social-dot { fill: currentColor; stroke: none; }
+
   @media (min-width: 23rem) {
     .contact-type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
@@ -551,6 +647,6 @@ button, input, textarea, select { font: inherit; }
 }
 
 @media (min-width: 64rem) {
-  .hero-section { min-height: 100svh; }
-  .hero-content { min-height: calc(100svh - 8rem); }
+  .hero-section { min-height: 80svh; }
+  .hero-content { min-height: calc(80svh - 8rem); }
 }

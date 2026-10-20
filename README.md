@@ -1,6 +1,6 @@
 # ENERGY WATT México Landing Page
 
-Landing page estática, responsive y lista para producción para ENERGY WATT México, construida con HTML5, Tailwind CSS local y JavaScript vanilla.
+Landing page estática y responsive para ENERGY WATT México, construida con HTML5, Tailwind CSS local y JavaScript vanilla.
 
 ## Tecnologías
 
@@ -84,25 +84,25 @@ Usar WebP o AVIF optimizados, sin marcas de agua.
 
 ## Datos de Contacto
 
-Los placeholders visibles están en `index.html` y los valores centralizados para uso dinámico están en `src/main.js`, dentro de `siteConfig`.
+El número de WhatsApp utilizado por las acciones de contacto está en `src/main.js`, dentro de `whatsappNumber`. Debe confirmarse en formato internacional antes de publicar.
 
 ## WhatsApp
 
 En `src/main.js`, cambia:
 
 ```js
-whatsappNumber: "5210000000000"
+const whatsappNumber = "5210000000000";
 ```
 
 por el número real en formato internacional, sin espacios ni signos.
 
 ## Formulario
 
-El formulario valida en frontend y actualmente funciona en modo demostración. Para conectarlo, edita `submitContactRequest()` en `src/main.js` y usa Formspree, Web3Forms, EmailJS o un endpoint propio.
+El formulario valida en frontend y abre WhatsApp con los datos capturados para solicitar seguimiento. Si se requiere guardar prospectos o enviar correos, hay que conectar `submitContactRequest()` en `src/main.js` a un servicio o endpoint propio.
 
 ## Redes Sociales
 
-Actualiza los enlaces del footer y el objeto `siteConfig.social` en `src/main.js` cuando existan URLs reales.
+Actualiza los enlaces del footer cuando existan URLs reales.
 
 ## Información Pendiente por Confirmar
 
@@ -112,10 +112,9 @@ Actualiza los enlaces del footer y el objeto `siteConfig.social` en `src/main.js
 - Dirección
 - Horarios
 - Redes sociales
-- URL definitiva
-- Aviso de privacidad
+- Aviso de privacidad legal completo
 - Términos y condiciones
-- Catálogo real
+- Catálogo real y fichas técnicas
 - Marcas distribuidas
 - Cobertura geográfica
 - Certificaciones

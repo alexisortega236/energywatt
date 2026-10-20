@@ -120,15 +120,17 @@ function initWhatsAppActions() {
 
     if (!hasWhatsApp || action.hasAttribute("data-whatsapp-floating") && action.matches("button[type=submit]")) return;
     action.addEventListener("click", () => {
-      const message = action.dataset.whatsappContext === "products"
-        ? "Hola, quiero información para cotizar productos de Energy Watt."
+      const message = action.dataset.whatsappCategory
+        ? `Hola, quiero cotizar la categoría ${action.dataset.whatsappCategory} de Energy Watt.`
+        : action.dataset.whatsappContext === "products"
+        ? "Hola, quiero información para cotizar material eléctrico de Energy Watt."
         : "Hola, me gustaría hablar con un asesor de Energy Watt.";
       openWhatsAppConversation(message);
     });
   });
 
   const floatingAction = document.querySelector("[data-whatsapp-floating]");
-  const avoidTargets = document.querySelectorAll("#contacto, footer");
+  const avoidTargets = document.querySelectorAll("#productos, #contacto, footer");
   if (!hasWhatsApp || !floatingAction || !avoidTargets.length || !("IntersectionObserver" in window)) return;
 
   const visibility = new Map();
@@ -154,6 +156,8 @@ function initClientTypeSelector() {
 
 function initFormValidation() {
   if (!form) return;
+  const initialSubmitLabel = form.querySelector('button[type="submit"] span');
+  if (initialSubmitLabel) initialSubmitLabel.textContent = "Solicitar seguimiento";
 
   form.addEventListener("input", (event) => {
     const field = event.target;
@@ -199,8 +203,10 @@ function initFormValidation() {
 
     const submitButton = form.querySelector('button[type="submit"]');
     if (!submitButton) return;
+    const submitLabel = submitButton.querySelector("span");
+    if (submitLabel) submitLabel.textContent = "Solicitar seguimiento";
     submitButton.disabled = true;
-    submitButton.textContent = "Preparando...";
+    if (submitLabel) submitLabel.textContent = "Preparando...";
     form.setAttribute("aria-busy", "true");
 
     try {
@@ -216,7 +222,7 @@ function initFormValidation() {
       }
     } finally {
       submitButton.disabled = false;
-      submitButton.textContent = "Quiero recibir asesoría";
+      if (submitLabel) submitLabel.textContent = "Solicitar seguimiento";
       form.removeAttribute("aria-busy");
     }
   });
