@@ -54,6 +54,8 @@ El CSS final se genera en `dist/styles.css` y `index.html` lo carga con:
 Sube al hosting:
 
 - `index.html`
+- `catalogo.html`
+- `catalogo-pdf.html`
 - `dist/styles.css`
 - carpeta `public/`
 - `src/main.js`

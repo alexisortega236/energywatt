@@ -30,6 +30,8 @@ jobs:
         run: |
           mkdir -p deploy
           cp index.html deploy/
+          cp catalogo.html deploy/
+          cp catalogo-pdf.html deploy/
           cp -R dist deploy/
           cp -R public deploy/
           cp -R src deploy/
