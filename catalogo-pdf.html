@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catálogo de productos ENERGY WATT México.">
+  <title>Catálogo | ENERGY WATT México</title>
+  <link rel="stylesheet" href="./dist/styles.css">
+</head>
+<body class="bg-ew-gray-light">
+  <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-ew-yellow focus:px-4 focus:py-3 focus:font-bold focus:text-ew-navy" href="#contenido">Saltar al contenido</a>
+  <header data-header class="fixed inset-x-0 top-0 z-50 bg-ew-navy transition-all duration-300 [&.is-scrolled]:bg-ew-navy/95 [&.is-scrolled]:shadow-2xl [&.is-scrolled]:backdrop-blur">
+    <div class="site-container flex min-h-20 items-center justify-between gap-4">
+      <a href="./index.html#inicio" aria-label="Ir al inicio" class="flex items-center"><img src="./public/assets/logos/energy-watt-logo-white.png" alt="ENERGY WATT México" class="h-12 w-44 object-contain md:h-14 md:w-60"></a>
+      <nav class="hidden items-center gap-4 text-sm font-bold text-white/82 lg:flex xl:gap-6" aria-label="Navegación principal"><a class="nav-link hover:text-ew-green" href="./index.html#inicio">Inicio</a><a class="nav-link text-ew-green" href="./catalogo.html" aria-current="page">Catálogo</a><a class="nav-link hover:text-ew-green" href="./index.html#contacto">Contacto</a></nav>
+      <button data-whatsapp-action class="btn btn-primary whatsapp-header-action hidden whitespace-nowrap lg:inline-flex" type="button" aria-label="Hablar con un asesor por WhatsApp" disabled><span>Hablar con un asesor</span></button>
+      <button data-mobile-toggle class="mobile-toggle grid h-11 w-11 place-items-center rounded-md border border-white/20 text-white lg:hidden" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil"><span class="h-0.5 w-6 bg-current shadow-[0_7px_0_current,0_-7px_0_current]"></span></button>
+    </div>
+    <div data-mobile-menu id="menu-movil" class="hidden border-t border-white/10 bg-ew-navy lg:hidden"><nav class="site-container grid gap-1 py-4 text-base font-bold text-white" aria-label="Navegación móvil"><a class="rounded-md px-3 py-3 hover:bg-white/8" href="./index.html#inicio">Inicio</a><a class="rounded-md px-3 py-3 text-ew-green hover:bg-white/8" href="./catalogo.html">Catálogo</a><a class="rounded-md px-3 py-3 hover:bg-white/8" href="./index.html#contacto">Contacto</a><div class="mobile-menu-contact"><button data-whatsapp-action class="btn btn-primary whatsapp-menu-action" type="button" aria-label="Hablar con un asesor por WhatsApp" disabled><span>Hablar con un asesor</span></button></div></nav></div>
+  </header>
+
+  <main id="contenido" class="pt-20">
+    <section class="section-compact bg-ew-navy text-white"><div class="site-container"><div class="reveal max-w-6xl"><p class="eyebrow">Catálogo digital</p><h1 class="mt-4 max-w-5xl font-[var(--font-display)] text-[clamp(2.7rem,6vw,5rem)] font-black leading-[.96]">Material eléctrico para tus proyectos</h1><p class="mt-5 max-w-4xl text-lg leading-8 text-white/78">Encuentra productos, soluciones y marcas para obra, mantenimiento e industria.</p></div></div></section>
+    <section id="catalogo" class="section-standard"><div class="site-container"><div class="reveal mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"><div><p class="eyebrow">Catálogo</p><h2 class="section-title">Conoce nuestras soluciones</h2><p class="mt-4 leading-7">Versión actualizada: 26 de octubre de 2026. El equipo puede sustituir el archivo PDF en <code>public/assets/catalogo-energy-watt.pdf</code> sin rehacer esta página.</p></div><div class="flex flex-wrap gap-3"><a class="btn btn-secondary" href="./public/assets/catalogo-energy-watt.pdf" download>Descargar PDF</a><a class="btn btn-secondary" href="./catalogo.html">Ver productos</a></div></div><div class="reveal overflow-hidden rounded-lg border border-ew-navy/10 bg-white shadow-[var(--shadow-card)]"><div class="flex items-center justify-between border-b border-ew-navy/10 px-5 py-4"><div><p class="eyebrow text-xs">ENERGY WATT MÉXICO</p><h2 class="mt-1 font-black text-ew-navy">Catálogo de productos</h2></div><span class="rounded-full bg-ew-green px-3 py-1 text-xs font-black text-ew-navy">PDF</span></div><div class="bg-ew-gray-light p-3 sm:p-5"><iframe data-pdf-frame class="h-[72vh] min-h-[48rem] w-full bg-white" src="./public/assets/catalogo-energy-watt.pdf" title="Catálogo de productos ENERGY WATT"></iframe></div></div></div></section>
+    <section class="section-compact bg-ew-green text-ew-navy"><div class="site-container flex flex-col gap-5 md:flex-row md:items-center md:justify-between"><div><p class="eyebrow">Contacto</p><h2 class="mt-3 text-3xl font-black md:text-4xl">¿Viste algo que te interesa?</h2><p class="mt-3 max-w-2xl font-semibold">Escríbenos por WhatsApp y te ayudamos con disponibilidad, marcas o cotización.</p></div><button data-whatsapp-action data-whatsapp-context="products" class="btn bg-ew-navy text-white hover:bg-black" type="button" disabled>Hablar con un asesor</button></div></section>
+  </main>
+  <footer class="bg-ew-navy py-10 text-white"><div class="site-container flex flex-col gap-4 text-sm text-white/70 md:flex-row md:items-center md:justify-between"><p>© <span data-year></span> ENERGY WATT México.</p><a class="font-bold text-ew-green" href="./index.html#productos">Ver productos</a></div></footer>
+  <script src="./src/main.js" defer></script>
+</body>
+</html>

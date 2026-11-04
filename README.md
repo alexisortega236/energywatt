@@ -96,9 +96,9 @@ const whatsappNumber = "5215544835265";
 
 por el número real en formato internacional, sin espacios ni signos.
 
-## Formulario
+## Contacto
 
-El formulario valida en frontend y está separado de WhatsApp. Para recibir solicitudes de seguimiento hay que configurar `followUpEndpoint` en `src/main.js` con un servicio o endpoint propio.
+La landing utiliza WhatsApp como canal principal de contacto. No se solicitan formularios ni números de teléfono adicionales en el sitio.
 
 ## Redes Sociales
 
