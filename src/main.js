@@ -118,8 +118,7 @@ function initPendingSocialLinks() {
     link.setAttribute("href", "#contacto");
     link.removeAttribute("target");
     link.removeAttribute("rel");
-    link.setAttribute("aria-label", `${link.getAttribute("aria-label")} (URL pendiente)`);
-    link.title = "URL oficial pendiente de actualización";
+    link.title = "Contactar con Energy Watt";
   });
 }
 
@@ -153,7 +152,7 @@ function initContactForm() {
     phone?.removeAttribute("aria-invalid");
     email?.removeAttribute("aria-invalid");
     if (status) {
-      status.dataset.state = "demo";
+      status.dataset.state = "validated";
       status.textContent = "Solicitud validada en el navegador. Falta conectar este formulario con el endpoint de recepción.";
     }
   });

@@ -812,7 +812,7 @@ button, input, textarea, select { font: inherit; }
   }
 
   [data-form-status][data-state="error"] { color: #B42318; }
-  [data-form-status][data-state="demo"] { color: var(--color-gray-dark); }
+  [data-form-status][data-state="validated"] { color: var(--color-gray-dark); }
   [data-form-status][data-state="success"] { color: #067A46; }
 
   .tech-bg {
