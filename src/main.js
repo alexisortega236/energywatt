@@ -167,6 +167,19 @@ function initCatalogLinks() {
   });
 }
 
+function initPdfViewer() {
+  const frame = document.querySelector("[data-pdf-frame]");
+  const gate = document.querySelector("[data-pdf-gate]");
+  const loadButton = document.querySelector("[data-pdf-load]");
+  if (!frame || !gate || !loadButton) return;
+
+  loadButton.addEventListener("click", () => {
+    frame.src = frame.dataset.pdfSrc || "";
+    frame.hidden = false;
+    gate.hidden = true;
+  });
+}
+
 function initContactForm() {
   const form = document.querySelector("[data-contact-form]");
   if (!form) return;
@@ -237,5 +250,6 @@ initWhatsAppActions();
 initProductCards();
 initPendingSocialLinks();
 initCatalogLinks();
+initPdfViewer();
 initContactForm();
 initRevealAnimations();
