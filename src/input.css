@@ -189,6 +189,42 @@ button, input, textarea, select { font: inherit; }
 
   .product-card {
     min-height: 100%;
+    overflow: hidden;
+    transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .product-card:hover,
+  .product-card:focus-visible {
+    transform: translateY(-4px);
+    border-color: rgb(0 250 100 / .42);
+    box-shadow: var(--shadow-card);
+  }
+
+  .product-card > img {
+    object-fit: contain !important;
+    object-position: center;
+    padding: 1rem;
+    background: transparent;
+    transition: transform var(--transition-base), filter var(--transition-base);
+  }
+  .product-card:hover > img,
+  .product-card:focus-visible > img { transform: scale(1.035); filter: saturate(1.08); }
+
+  .catalog-page-badge {
+    position: absolute;
+    top: .75rem;
+    left: .75rem;
+    z-index: 1;
+    padding: .35rem .6rem;
+    border: 1px solid rgb(0 20 60 / .12);
+    border-radius: 999px;
+    background: rgb(255 255 255 / .9);
+    color: var(--color-navy);
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    box-shadow: 0 5px 16px rgb(0 20 60 / .12);
   }
 
   .brand-chip {
