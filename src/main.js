@@ -73,30 +73,40 @@ function initPdfViewer() {
 function initContactForm() {
   const form = document.querySelector("[data-contact-form]");
   if (!form) return;
-  const phone = form.querySelector("#telefono");
-  const email = form.querySelector("#email");
+  const name = form.elements.namedItem("nombre");
+  const company = form.elements.namedItem("empresa");
+  const service = form.elements.namedItem("servicio");
+  const message = form.elements.namedItem("mensaje");
   const status = form.querySelector("[data-form-status]");
+  const submit = form.querySelector('[type="submit"]');
+
+  if (submit) submit.disabled = false;
+  [name, message].forEach((field) => {
+    field.addEventListener("input", () => field.setCustomValidity(""));
+  });
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const hasPhone = phone?.value.trim().length >= 8;
-    const hasEmail = email?.value.trim() && email.checkValidity();
-    if (!hasPhone && !hasEmail) {
-      const message = "Indica al menos un medio de contacto: teléfono o correo electrónico.";
-      phone?.setAttribute("aria-invalid", "true");
-      email?.setAttribute("aria-invalid", "true");
-      if (status) {
-        status.dataset.state = "error";
-        status.textContent = message;
-      }
-      return;
-    }
-    phone?.removeAttribute("aria-invalid");
-    email?.removeAttribute("aria-invalid");
+    name.setCustomValidity(name.value.trim().length >= 2 ? "" : "Escribe tu nombre (al menos 2 caracteres).");
+    message.setCustomValidity(message.value.trim().length >= 5 ? "" : "Cuéntanos qué necesitas (al menos 5 caracteres).");
+    if (!form.reportValidity()) return;
+
+    const lines = [
+      "Hola, me gustaría solicitar información a Energy Watt.",
+      `Nombre: ${name.value.trim()}`,
+      ...(company.value.trim() ? [`Empresa: ${company.value.trim()}`] : []),
+      `Servicio de interés: ${service.value}`,
+      "",
+      message.value.trim()
+    ];
+    const url = buildWhatsAppUrl(lines.join("\n"));
     if (status) {
       status.dataset.state = "validated";
-      status.textContent = "Solicitud validada en el navegador. Falta conectar este formulario con el endpoint de recepción.";
+      status.textContent = "Mensaje preparado. Revisa el texto y pulsa Enviar dentro de WhatsApp para compartirlo con la tienda.";
     }
+    // Count only the handoff; opening WhatsApp does not confirm a sent request.
+    trackEvent("whatsapp_click", { context: "contact_form", service: service.value });
+    window.location.assign(url);
   });
 }
 

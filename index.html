@@ -286,40 +286,20 @@
             <span>Hablar con un asesor</span>
           </a>
         </div>
-        <form data-contact-form class="reveal contact-form-card lg:col-start-2" novalidate>
-          <input class="hidden" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <form data-contact-form class="reveal contact-form-card lg:col-start-2" aria-describedby="contacto-instrucciones">
           <div class="contact-form-header">
-            <fieldset>
-              <legend class="contact-form-title">¿Quién solicita la información?</legend>
-              <p class="contact-form-description">Selecciona la opción que mejor te describa.</p>
-            </fieldset>
+            <h3 class="contact-form-title">Prepara tu consulta por WhatsApp</h3>
+            <p id="contacto-instrucciones" class="contact-form-description">Completa los datos para abrir una conversación con la tienda al 871 724 0933. Revisa el mensaje y pulsa Enviar dentro de WhatsApp.</p>
           </div>
-          <fieldset class="contact-type-fieldset">
-            <legend class="sr-only">Tipo de cliente</legend>
-            <div class="contact-type-grid">
-              <label data-client-option class="contact-type-option is-selected">
-                <input class="contact-type-radio" type="radio" name="tipo_cliente" value="persona" checked required aria-describedby="tipo-cliente-error">
-                <span class="contact-option-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span>
-                <span class="contact-option-copy"><span class="contact-option-title">Soy una persona</span><span class="contact-option-subtitle">Proyecto personal</span></span>
-              </label>
-              <label data-client-option class="contact-type-option">
-                <input class="contact-type-radio" type="radio" name="tipo_cliente" value="empresa" required aria-describedby="tipo-cliente-error">
-                <span class="contact-option-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V5h10v16M14 9h6v12M8 9h2M8 13h2M8 17h2M17 13h1M17 17h1"/></svg></span>
-                <span class="contact-option-copy"><span class="contact-option-title">Represento una empresa</span><span class="contact-option-subtitle">Proyecto empresarial</span></span>
-              </label>
-            </div>
-            <p class="field-error" id="tipo-cliente-error"></p>
-          </fieldset>
           <div class="contact-fields-grid">
-            <div><label class="contact-label" for="nombre">Nombre <span class="contact-required" aria-hidden="true">*</span></label><input class="field contact-field mt-2" id="nombre" name="nombre" autocomplete="name" required minlength="2" aria-describedby="nombre-error"><p class="field-error" id="nombre-error"></p></div>
-            <div><label class="contact-label" for="telefono">Teléfono <span class="contact-optional">(opcional si compartes correo)</span></label><input class="field contact-field mt-2" id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9+() .-]{8,}" aria-describedby="telefono-error"><p class="field-error" id="telefono-error"></p></div>
-            <div><label class="contact-label" for="email">Correo electrónico <span class="contact-optional">(opcional si compartes teléfono)</span></label><input class="field contact-field mt-2" id="email" name="email" type="email" autocomplete="email" aria-describedby="email-error"><p class="field-error" id="email-error"></p></div>
-            <div data-company-only class="hidden"><label class="contact-label" for="empresa">Empresa <span class="contact-required" aria-hidden="true">*</span></label><input class="field contact-field mt-2" id="empresa" name="empresa" autocomplete="organization" data-company-field data-required-company="true" aria-describedby="empresa-error"><p class="field-error" id="empresa-error"></p></div>
-            <div data-company-only class="hidden contact-field-wide"><label class="contact-label" for="tipo-proyecto">Tipo de proyecto <span class="contact-optional">(opcional)</span></label><select class="field contact-field mt-2" id="tipo-proyecto" name="tipo_proyecto" data-company-field aria-describedby="tipo-proyecto-error"><option value="">Selecciona una opción</option><option>Industrial</option><option>Comercial</option><option>Construcción</option><option>Mantenimiento</option><option>Otro</option></select><p class="field-error" id="tipo-proyecto-error"></p></div>
-            <div class="contact-field-wide"><label class="contact-label" for="mensaje">Cuéntanos un poco más <span class="contact-optional">(opcional)</span></label><textarea class="field contact-field contact-message mt-2" id="mensaje" name="mensaje" aria-describedby="mensaje-error" placeholder="Por ejemplo, busco material eléctrico para una instalación…"></textarea><p class="field-error" id="mensaje-error"></p></div>
+            <div><label class="contact-label" for="nombre">Nombre <span class="contact-required" aria-hidden="true">*</span></label><input class="field contact-field mt-2" id="nombre" name="nombre" autocomplete="name" required minlength="2" maxlength="80"></div>
+            <div><label class="contact-label" for="empresa">Empresa <span class="contact-optional">(opcional)</span></label><input class="field contact-field mt-2" id="empresa" name="empresa" autocomplete="organization" maxlength="120"></div>
+            <div class="contact-field-wide"><label class="contact-label" for="servicio">Servicio de interés <span class="contact-required" aria-hidden="true">*</span></label><select class="field contact-field mt-2" id="servicio" name="servicio" required><option value="">Selecciona un servicio</option><option>Alumbrado público</option><option>Iluminación residencial</option><option>Material eléctrico</option><option>Herramientas</option><option>Proyectos de energía solar y calentadores solares</option><option>Minisplits</option><option>Otro / necesito orientación</option></select></div>
+            <div class="contact-field-wide"><label class="contact-label" for="mensaje">¿Qué necesitas? <span class="contact-required" aria-hidden="true">*</span></label><textarea class="field contact-field contact-message mt-2" id="mensaje" name="mensaje" required minlength="5" maxlength="1200" placeholder="Cuéntanos qué buscas, cantidades o detalles de tu proyecto."></textarea></div>
           </div>
-          <button class="btn btn-primary contact-submit" type="submit"><span>Enviar solicitud de seguimiento</span><span aria-hidden="true">→</span></button>
-          <p class="contact-privacy-note">Usaremos estos datos únicamente para dar seguimiento a tu solicitud. Al enviar, acepta consultar nuestro <a href="#privacidad" class="font-bold underline">aviso de privacidad</a>. Este formulario no abre WhatsApp.</p>
+          <button class="btn btn-primary contact-submit" type="submit" disabled><span>Continuar por WhatsApp</span><span aria-hidden="true">→</span></button>
+          <p class="contact-privacy-note">El botón abre WhatsApp con tu mensaje preparado; no lo envía automáticamente. Puedes editarlo antes de enviarlo. Consulta nuestro <a href="#privacidad" class="font-bold underline">aviso de privacidad</a>.</p>
+          <noscript><p class="mt-4">Para preparar el mensaje activa JavaScript, o <a class="font-bold underline" href="https://wa.me/528717240933">escribe directamente por WhatsApp</a>.</p></noscript>
           <p data-form-status class="mt-4 min-h-6 font-bold text-ew-navy" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -330,7 +310,7 @@
     <div class="site-container max-w-3xl">
       <p class="eyebrow">Privacidad</p>
       <h2 id="privacidad-titulo" class="mt-4 text-2xl font-black text-ew-navy">Aviso de privacidad</h2>
-  <p class="mt-3 leading-7">Los datos enviados mediante el formulario o WhatsApp se utilizarán únicamente para dar seguimiento a tu solicitud y preparar una cotización. El formulario requiere al menos un teléfono o correo electrónico.</p>
+  <p class="mt-3 leading-7">Los datos que decidas enviar por WhatsApp se utilizarán para atender tu consulta y preparar una cotización. El formulario prepara el mensaje en tu navegador; para compartirlo con Energy Watt debes enviarlo dentro de WhatsApp.</p>
     </div>
   </section>
 
