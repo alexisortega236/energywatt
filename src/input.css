@@ -82,6 +82,7 @@ button, input, textarea, select { font: inherit; }
 
   .anchor-alias { display: block; scroll-margin-top: 6rem; }
   .service-card { min-width: 0; border-top: 3px solid var(--color-green); }
+  .service-image { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; background: var(--color-gray-light); }
   .service-card .category-quote-link { min-height: 44px; max-width: 100%; }
   [data-mobile-menu] { max-height: calc(100dvh - 5rem); overflow-y: auto; }
   @media (max-width: 63.99rem) {
