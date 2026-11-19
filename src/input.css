@@ -79,21 +79,15 @@ button, input, textarea, select { font: inherit; }
   .hero-section { min-height: 38rem; }
   .hero-content { min-height: 0; }
 
-  main {
-    display: flex;
-    flex-direction: column;
-  }
 
-  #inicio { order: 1; }
-  main > section:nth-child(2) { order: 2; }
-  #productos { order: 3; }
-  #soluciones { order: 4; }
-  #nosotros { order: 5; }
-  #proceso { order: 6; }
-  main > section:nth-child(7) { order: 6; }
-  #ventajas { order: 7; }
-  main > section:nth-child(9) { order: 8; }
-  #contacto { order: 9; }
+  .anchor-alias { display: block; scroll-margin-top: 6rem; }
+  .service-card { min-width: 0; border-top: 3px solid var(--color-green); }
+  .service-card .category-quote-link { min-height: 44px; max-width: 100%; }
+  [data-mobile-menu] { max-height: calc(100dvh - 5rem); overflow-y: auto; }
+  @media (max-width: 63.99rem) {
+    body { padding-bottom: 5rem; }
+    .hero-content .btn { white-space: normal; }
+  }
 
   .eyebrow {
     display: inline-flex;
