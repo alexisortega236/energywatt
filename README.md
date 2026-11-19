@@ -93,7 +93,7 @@ El número de WhatsApp utilizado por las acciones de contacto está en `src/main
 En `src/main.js`, cambia:
 
 ```js
-const whatsappNumber = "528717240933";
+const whatsappNumber = "528715188606";
 ```
 
 por el número real en formato internacional, sin espacios ni signos.

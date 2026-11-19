@@ -40,7 +40,7 @@ test('prepares a message for the store, without requiring company, telephone or 
   assert.equal(app.button.disabled, false);
   app.submit();
   const url = new URL(app.destinations[0]);
-  assert.equal(url.origin + url.pathname, 'https://wa.me/528717240933');
+  assert.equal(url.origin + url.pathname, 'https://wa.me/528715188606');
   const message = url.searchParams.get('text');
   assert.match(message, /Nombre: Ana Pérez/);
   assert.match(message, /Servicio de interés: Minisplits/);

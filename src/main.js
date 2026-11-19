@@ -1,6 +1,6 @@
 document.documentElement.classList.add("js");
 
-const whatsappNumber = "528717240933";
+const whatsappNumber = "528715188606";
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const header = document.querySelector("[data-header]");
 const mobileToggle = document.querySelector("[data-mobile-toggle]");
