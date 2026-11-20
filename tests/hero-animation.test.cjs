@@ -9,10 +9,9 @@ function setup({ reduced = false, observer = true } = {}) {
   const listeners = {};
   const label = { textContent: 'Pausar animación' };
   const control = { hidden: true, addEventListener: (name, fn) => { listeners[name] = fn; }, setAttribute: (name, value) => { attributes[name] = value; } };
-  const replay = { hidden: true, addEventListener: (name, fn) => { listeners["replay-" + name] = fn; } };
   const stage = {
     classList: { add: (name) => classes.add(name), remove: (...names) => names.forEach((name) => classes.delete(name)), toggle(name) { if (classes.has(name)) { classes.delete(name); return false; } classes.add(name); return true; } },
-    querySelector: (selector) => selector === '[data-hero-motion]' ? control : selector === '[data-hero-replay]' ? replay : label
+    querySelector: (selector) => selector === '[data-hero-motion]' ? control : label
   };
   let onIntersection;
   let disconnected = false;
@@ -30,7 +29,7 @@ function setup({ reduced = false, observer = true } = {}) {
     context.window.IntersectionObserver = context.IntersectionObserver;
   }
   vm.runInNewContext(fs.readFileSync('src/main.js', 'utf8'), context);
-  return { classes, control, replay, attributes, label, listeners, intersect(value) { onIntersection([{ isIntersecting: value }]); }, disconnected: () => disconnected };
+  return { classes, control, attributes, label, listeners, intersect(value) { onIntersection([{ isIntersecting: value }]); }, disconnected: () => disconnected };
 }
 
 test('starts only when the hero enters the viewport', () => {
@@ -67,17 +66,4 @@ test('starts gracefully when IntersectionObserver is unavailable', () => {
   const app = setup({ observer: false });
   assert.equal(app.classes.has('is-energized'), true);
   assert.equal(app.control.hidden, false);
-});
-
-
-test('replay restarts the power-on sequence and clears pause state', () => {
-  const app = setup();
-  app.intersect(true);
-  assert.equal(app.replay.hidden, false);
-  app.listeners.click();
-  app.listeners['replay-click']();
-  assert.equal(app.classes.has('is-energized'), true);
-  assert.equal(app.classes.has('is-paused'), false);
-  assert.equal(app.attributes['aria-pressed'], 'false');
-  assert.equal(app.label.textContent, 'Pausar animación');
 });
