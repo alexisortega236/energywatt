@@ -115,9 +115,11 @@ function initHeroAnimation() {
   if (!stage || prefersReducedMotion) return;
   const control = stage.querySelector("[data-hero-motion]");
   const label = stage.querySelector("[data-hero-motion-label]");
+  const replay = stage.querySelector("[data-hero-replay]");
   const start = () => {
     stage.classList.add("is-energized");
     if (control) control.hidden = false;
+    if (replay) replay.hidden = false;
   };
   control?.addEventListener("click", () => {
     const paused = stage.classList.toggle("is-paused");
@@ -125,6 +127,15 @@ function initHeroAnimation() {
     control.setAttribute("aria-pressed", String(paused));
     control.setAttribute("aria-label", text + " del logo");
     if (label) label.textContent = text;
+  });
+  replay?.addEventListener("click", () => {
+    stage.classList.remove("is-energized", "is-paused");
+    // Commit the reset before restarting the CSS sequence.
+    void stage.offsetWidth;
+    start();
+    control?.setAttribute("aria-pressed", "false");
+    control?.setAttribute("aria-label", "Pausar animación del logo");
+    if (label) label.textContent = "Pausar animación";
   });
   if (!("IntersectionObserver" in window)) {
     start();
