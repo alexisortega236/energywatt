@@ -97,9 +97,21 @@
             <a class="btn btn-secondary" href="./public/assets/catalogo-energy-watt.pdf" target="_blank" rel="noopener" aria-label="Abrir catálogo PDF 2026 en una pestaña nueva">Ver catálogo PDF</a>
           </div>
         </div>
-        <div class="reveal relative">
-          <div class="absolute -inset-6 bg-ew-green/5 blur-3xl"></div>
-          <img src="./public/assets/images/hero-soluciones-1280.webp" srcset="./public/assets/images/hero-soluciones-640.webp 640w, ./public/assets/images/hero-soluciones-1280.webp 1280w" sizes="(min-width: 1280px) 520px, (min-width: 1024px) 43vw, 92vw" width="1280" height="854" fetchpriority="high" alt="Ilustración de iluminación exterior y residencial, paneles solares, calentador solar y minisplit" class="relative aspect-[3/2] w-full rounded-lg border border-white/10 object-cover shadow-[var(--shadow-dark)]">
+        <div class="hero-stage" data-hero-stage role="group" aria-label="Energy Watt México: iluminación, energía y climatización">
+          <img src="./public/assets/images/hero-soluciones-1280.webp" srcset="./public/assets/images/hero-soluciones-640.webp 640w, ./public/assets/images/hero-soluciones-1280.webp 1280w" sizes="(min-width: 1280px) 520px, (min-width: 1024px) 43vw, 92vw" width="1280" height="854" fetchpriority="high" alt="" class="hero-stage-photo">
+          <div class="hero-stage-grid" aria-hidden="true"></div>
+          <svg class="hero-circuit" viewBox="0 0 1000 700" preserveAspectRatio="none" fill="none" aria-hidden="true">
+            <g class="hero-circuit-base"><path d="M0 140H110L190 220V280H300M0 560H160L220 500V420H300M1000 140H890L810 220V280H700M1000 560H840L780 500V420H700"/></g>
+            <g class="hero-circuit-current"><path pathLength="1" d="M0 140H110L190 220V280H300"/><path pathLength="1" d="M1000 140H890L810 220V280H700"/><path pathLength="1" d="M0 560H160L220 500V420H300"/><path pathLength="1" d="M1000 560H840L780 500V420H700"/></g>
+            <g class="hero-circuit-nodes"><circle cx="110" cy="140" r="5"/><circle cx="890" cy="140" r="5"/><circle cx="160" cy="560" r="5"/><circle cx="840" cy="560" r="5"/></g>
+          </svg>
+          <div class="hero-energy-wave" aria-hidden="true"></div>
+          <div class="hero-brand-mark">
+            <img src="./public/assets/logos/energy-watt-logo-white.png" alt="ENERGY WATT México" width="862" height="289" decoding="async">
+            <span class="hero-brand-sweep" aria-hidden="true"></span>
+          </div>
+          <span class="hero-stage-kicker" aria-hidden="true">ENERGÍA QUE CONECTA</span>
+          <button class="hero-motion-control" data-hero-motion type="button" aria-label="Pausar animación del logo" aria-pressed="false" hidden><span data-hero-motion-label>Pausar animación</span></button>
         </div>
       </div>
     </section>

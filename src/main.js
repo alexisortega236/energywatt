@@ -110,6 +110,34 @@ function initContactForm() {
   });
 }
 
+function initHeroAnimation() {
+  const stage = document.querySelector("[data-hero-stage]");
+  if (!stage || prefersReducedMotion) return;
+  const control = stage.querySelector("[data-hero-motion]");
+  const label = stage.querySelector("[data-hero-motion-label]");
+  const start = () => {
+    stage.classList.add("is-energized");
+    if (control) control.hidden = false;
+  };
+  control?.addEventListener("click", () => {
+    const paused = stage.classList.toggle("is-paused");
+    const text = paused ? "Reanudar animación" : "Pausar animación";
+    control.setAttribute("aria-pressed", String(paused));
+    control.setAttribute("aria-label", text + " del logo");
+    if (label) label.textContent = text;
+  });
+  if (!("IntersectionObserver" in window)) {
+    start();
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+    start();
+    observer.disconnect();
+  }, { threshold: 0.25 });
+  observer.observe(stage);
+}
+
 function initRevealAnimations() {
   const revealNodes = document.querySelectorAll(".reveal");
   if (prefersReducedMotion || !("IntersectionObserver" in window)) {
@@ -149,4 +177,5 @@ if (yearNode) yearNode.textContent = new Date().getFullYear();
 initWhatsAppActions();
 initPdfViewer();
 initContactForm();
+initHeroAnimation();
 initRevealAnimations();
