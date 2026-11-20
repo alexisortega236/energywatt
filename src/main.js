@@ -117,16 +117,19 @@ function initHeroAnimation() {
   const label = stage.querySelector("[data-hero-motion-label]");
   const start = () => {
     stage.classList.add("is-energized");
+    stage.closest?.("#inicio")?.classList.add("is-energized");
     if (control) control.hidden = false;
   };
   control?.addEventListener("click", () => {
     const paused = stage.classList.toggle("is-paused");
+    stage.closest?.("#inicio")?.classList.toggle("is-paused", paused);
     const text = paused ? "Reanudar animación" : "Pausar animación";
     control.setAttribute("aria-pressed", String(paused));
     control.setAttribute("aria-label", text + " del logo");
     control.setAttribute("title", text);
     if (label) label.textContent = text;
   });
+  initHeroParallax(stage);
   if (!("IntersectionObserver" in window)) {
     start();
     return;
@@ -137,6 +140,45 @@ function initHeroAnimation() {
     observer.disconnect();
   }, { threshold: 0.25 });
   observer.observe(stage);
+}
+
+function initHeroParallax(stage) {
+  const hero = stage.closest?.("#inicio");
+  if (!hero || prefersReducedMotion || !window.requestAnimationFrame) return;
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+  let pointerX = 0;
+  let pointerY = 0;
+  let frame = null;
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+  const render = () => {
+    frame = null;
+    if (stage.classList.contains("is-paused")) return;
+    const rect = stage.getBoundingClientRect();
+    const height = window.innerHeight || 800;
+    if (rect.bottom < 0 || rect.top > height) return;
+    const scroll = clamp((height / 2 - rect.top - rect.height / 2) / height, -1, 1) * 70;
+    hero.style.setProperty("--hero-scroll", scroll.toFixed(2) + "px");
+    hero.style.setProperty("--hero-pointer-x", pointerX.toFixed(2) + "px");
+    hero.style.setProperty("--hero-pointer-y", pointerY.toFixed(2) + "px");
+    hero.style.setProperty("--hero-rotate-x", (-pointerY / 5).toFixed(2) + "deg");
+    hero.style.setProperty("--hero-rotate-y", (pointerX / 6).toFixed(2) + "deg");
+  };
+  const schedule = () => {
+    if (frame === null && !stage.classList.contains("is-paused")) {
+      frame = window.requestAnimationFrame(render);
+    }
+  };
+  hero.addEventListener("pointermove", (event) => {
+    if (!finePointer.matches || event.pointerType === "touch") return;
+    const rect = hero.getBoundingClientRect();
+    pointerX = clamp((event.clientX - rect.left) / rect.width - .5, -.5, .5) * 48;
+    pointerY = clamp((event.clientY - rect.top) / rect.height - .5, -.5, .5) * 30;
+    schedule();
+  }, { passive: true });
+  hero.addEventListener("pointerleave", () => { pointerX = 0; pointerY = 0; schedule(); });
+  window.addEventListener("scroll", schedule, { passive: true });
+  window.addEventListener("resize", schedule, { passive: true });
+  schedule();
 }
 
 function initRevealAnimations() {

@@ -18,7 +18,7 @@
   <meta name="theme-color" content="#00143C">
   <link rel="icon" href="./public/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="./public/site.webmanifest">
-  <link rel="stylesheet" href="./dist/styles.css?v=hero-20261120-4">
+  <link rel="stylesheet" href="./dist/styles.css?v=hero-20261120-5">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -84,7 +84,11 @@
 
   <main id="contenido">
     <section id="inicio" class="hero-section tech-bg relative bg-ew-navy pt-28 text-white md:pt-32">
-      <div class="hero-content site-container grid items-center gap-10 pb-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-14">
+      <div class="hero-world" aria-hidden="true">
+          <img src="./public/assets/images/hero-soluciones-1280.webp" srcset="./public/assets/images/hero-soluciones-640.webp 640w, ./public/assets/images/hero-soluciones-1280.webp 1280w" sizes="100vw" width="1280" height="854" fetchpriority="high" alt="" class="hero-world-photo">
+        <div class="hero-world-shade"></div>
+      </div>
+      <div class="hero-content site-container grid items-center gap-10 pb-12 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
         <div class="reveal max-w-3xl lg:pr-4">
           <p class="eyebrow">Soluciones para hogares, negocios y proyectos</p>
           <h1 class="mt-4 max-w-[18ch] font-[var(--font-display)] text-[clamp(2.7rem,5.2vw,5rem)] font-black leading-[.96] tracking-normal">Iluminación, material eléctrico y soluciones para tu proyecto</h1>
@@ -98,7 +102,6 @@
           </div>
         </div>
         <div class="hero-stage" data-hero-stage role="group" aria-label="Energy Watt México: iluminación, energía y climatización">
-          <img src="./public/assets/images/hero-soluciones-1280.webp" srcset="./public/assets/images/hero-soluciones-640.webp 640w, ./public/assets/images/hero-soluciones-1280.webp 1280w" sizes="(min-width: 1280px) 520px, (min-width: 1024px) 43vw, 92vw" width="1280" height="854" fetchpriority="high" alt="" class="hero-stage-photo">
           <div class="hero-stage-grid" aria-hidden="true"></div>
           <svg class="hero-circuit" viewBox="0 0 1000 700" preserveAspectRatio="none" fill="none" aria-hidden="true">
             <g class="hero-circuit-base"><path d="M0 140H110L190 220V280H300M0 560H160L220 500V420H300M1000 140H890L810 220V280H700M1000 560H840L780 500V420H700"/></g>
@@ -369,6 +372,6 @@
     <span class="whatsapp-float-label">Hablar con un asesor</span>
   </a>
 
-  <script src="./src/main.js?v=hero-20261120-4" defer></script>
+  <script src="./src/main.js?v=hero-20261120-5" defer></script>
 </body>
 </html>
