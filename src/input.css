@@ -901,12 +901,12 @@ button, input, textarea, select { font: inherit; }
     isolation: isolate;
     width: 100%;
     min-width: 0;
-    height: clamp(220px, 58vw, 260px);
+    height: clamp(330px, 92vw, 430px);
     overflow: hidden;
-    border: 1px solid rgb(0 250 100 / .25);
-    border-radius: 1rem;
-    background: #00102d;
-    box-shadow: 0 24px 64px rgb(0 0 0 / .3), inset 0 0 50px rgb(0 250 100 / .04);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
   }
   .hero-stage::before {
     content: "";
@@ -923,9 +923,9 @@ button, input, textarea, select { font: inherit; }
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    background: linear-gradient(180deg, rgb(0 16 45 / .2), rgb(0 16 45 / .7) 50%, rgb(0 16 45 / .9));
+    background: radial-gradient(ellipse at 50% 45%, transparent 15%, rgb(0 20 60 / .5) 55%, #00143c 80%);
   }
-  .hero-stage-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .5; }
+  .hero-stage-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .5; mask-image: radial-gradient(ellipse at center, black 10%, transparent 72%); }
   .hero-stage-grid {
     position: absolute;
     inset: 0;
@@ -934,14 +934,14 @@ button, input, textarea, select { font: inherit; }
     pointer-events: none;
     background-image: linear-gradient(rgb(0 250 100 / .25) 1px, transparent 1px), linear-gradient(90deg, rgb(0 250 100 / .25) 1px, transparent 1px);
     background-size: 38px 38px;
-    mask-image: radial-gradient(ellipse, transparent 18%, black 90%);
+    mask-image: radial-gradient(ellipse, black 20%, transparent 75%);
   }
-  .hero-circuit { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; pointer-events: none; }
+  .hero-circuit { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; pointer-events: none; mask-image: radial-gradient(ellipse, black 35%, transparent 80%); }
   .hero-circuit path { vector-effect: non-scaling-stroke; stroke-width: 1.5; }
   .hero-circuit-base { stroke: rgb(0 250 100 / .16); }
   .hero-circuit-current { stroke: var(--color-green); opacity: .65; }
   .hero-circuit-nodes { fill: var(--color-green); opacity: .5; }
-  .hero-brand-mark { position: absolute; z-index: 4; width: 82%; left: 9%; top: 50%; transform: translateY(-50%); }
+  .hero-brand-mark { position: absolute; z-index: 4; width: 100%; left: 0; top: 45%; transform: translateY(-50%); }
   .hero-brand-mark img { display: block; width: 100%; height: auto; filter: drop-shadow(0 0 14px rgb(0 250 100 / .24)); }
   .hero-brand-sweep {
     position: absolute;
@@ -954,19 +954,19 @@ button, input, textarea, select { font: inherit; }
     -webkit-mask: url("../public/assets/logos/energy-watt-logo-white.png") center / contain no-repeat;
   }
   .hero-energy-wave { position: absolute; z-index: 3; inset: 18% 30%; border: 1px solid rgb(0 250 100 / .65); border-radius: 50%; opacity: 0; pointer-events: none; }
-  .hero-stage-kicker { position: absolute; z-index: 4; left: 1rem; right: 1rem; bottom: 3.8rem; color: rgb(255 255 255 / .68); text-align: center; font-size: .62rem; font-weight: 700; letter-spacing: .2em; }
+  .hero-stage-kicker { position: absolute; z-index: 4; left: 1rem; right: 1rem; bottom: 22%; color: rgb(255 255 255 / .68); text-align: center; font-size: .62rem; font-weight: 700; letter-spacing: .2em; }
   .hero-motion-control { position: absolute; z-index: 5; bottom: .65rem; right: .65rem; min-height: 44px; padding: .5rem .75rem; border: 1px solid rgb(255 255 255 / .18); border-radius: 999px; background: rgb(0 16 45 / .8); color: rgb(255 255 255 / .8); font-size: .65rem; cursor: pointer; }
   .hero-replay-control { left: .65rem; right: auto; }
   .hero-motion-control[hidden] { display: none; }
   .hero-motion-control:hover { color: white; border-color: var(--color-green); }
   .hero-motion-control:focus-visible { outline: 2px solid var(--color-green); outline-offset: 3px; }
-  .hero-stage.is-energized .hero-circuit-current path { animation: hero-circuit-charge 1.6s ease-out both; }
-  .hero-stage.is-energized .hero-circuit-current path:nth-child(n+3) { animation-delay: .25s; }
-  .hero-stage.is-energized .hero-brand-mark { animation: hero-logo-power 3.8s ease-out both; }
-  .hero-stage.is-energized .hero-brand-sweep { animation: hero-logo-sweep 1.4s ease-in-out 1.6s both; }
-  .hero-stage.is-energized .hero-energy-wave { animation: hero-energy-release 1.8s ease-out 1.4s both; }
-  .hero-stage.is-energized .hero-stage-photo { animation: hero-photo-reveal 3.8s ease-out both; }
-  .hero-stage.is-energized::before { animation: hero-ambient-energy 7s ease-in-out 3.8s infinite; }
+  .hero-stage.is-energized .hero-circuit-current path { animation: hero-circuit-charge 3.4s ease-out both; }
+  .hero-stage.is-energized .hero-circuit-current path:nth-child(n+3) { animation-delay: .6s; }
+  .hero-stage.is-energized .hero-brand-mark { animation: hero-logo-power 8s ease-out both; }
+  .hero-stage.is-energized .hero-brand-sweep { animation: hero-logo-sweep 3s ease-in-out 3.4s both; }
+  .hero-stage.is-energized .hero-energy-wave { animation: hero-energy-release 4s ease-out 3s both; }
+  .hero-stage.is-energized .hero-stage-photo { animation: hero-photo-reveal 8s ease-out both; }
+  .hero-stage.is-energized::before { animation: hero-ambient-energy 9s ease-in-out 8s infinite; }
   .hero-stage.is-paused *, .hero-stage.is-paused::before { animation-play-state: paused !important; }
   @keyframes hero-circuit-charge { from { stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0; } 15% { opacity: 1; } to { stroke-dasharray: 1; stroke-dashoffset: 0; opacity: .65; } }
   @keyframes hero-logo-power { 0%, 20% { opacity: .2; filter: brightness(.5); } 46% { opacity: 1; filter: brightness(1.65) drop-shadow(0 0 18px rgb(0 250 100 / .6)); } 70%, 100% { opacity: 1; filter: brightness(1); } }
@@ -975,12 +975,12 @@ button, input, textarea, select { font: inherit; }
   @keyframes hero-photo-reveal { 0%, 30% { opacity: .08; } 100% { opacity: .5; } }
   @keyframes hero-ambient-energy { 0%, 100% { opacity: .35; transform: scale(.94); } 50% { opacity: .7; transform: scale(1.04); } }
   @media (min-width: 48rem) and (max-width: 63.99rem) {
-    .hero-stage { height: 340px; }
-    .hero-brand-mark { width: 74%; left: 13%; }
+    .hero-stage { height: 460px; }
+    .hero-brand-mark { width: 90%; left: 5%; }
   }
   @media (min-width: 64rem) {
-    .hero-stage { height: clamp(360px, 36vw, 460px); }
-    .hero-brand-mark { width: 86%; left: 7%; }
+    .hero-stage { height: clamp(460px, 46vw, 620px); }
+    .hero-brand-mark { width: 100%; left: 0; }
     .hero-stage-kicker { bottom: 22%; font-size: .7rem; letter-spacing: .25em; }
   }
   @media (prefers-reduced-motion: reduce) {
